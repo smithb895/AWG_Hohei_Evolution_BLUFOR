@@ -1,0 +1,232 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, checkForAdmin">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"start",0,250,-40.348839,-141.279068,49.651161,-91.279068,0.000000,"start"};
+item1[] = {"sleep_10",4,218,-37.906960,-63.917107,52.093040,-13.917107,0.000000,"sleep 10"};
+item2[] = {"loop",2,250,-37.661346,14.137276,52.338669,64.137268,0.000000,"loop"};
+item3[] = {"alive_player",4,218,-36.271553,111.382156,53.728447,161.382156,0.000000,"alive player"};
+item4[] = {"loop_1",2,250,-36.249565,197.173431,53.750450,247.173447,0.000000,"loop"};
+item5[] = {"logout",4,218,-118.149193,280.535187,-28.149208,330.535187,0.000000,"logout"};
+item6[] = {"delete_admin",2,250,-232.467972,201.581711,-142.467941,251.581772,0.000000,"delete admin"};
+item7[] = {"true",8,218,-127.730637,147.804138,-37.730629,203.300751,0.000000,"true"};
+item8[] = {"wait_for_admin",4,218,20.145950,280.128571,110.146057,330.128571,1.000000,"wait for admin"};
+item9[] = {"set_admin",2,250,247.499283,280.711578,337.499329,330.711609,0.000000,"set admin"};
+item10[] = {"logout",4,218,121.415733,195.823166,211.415817,245.823166,3.000000,"logout"};
+item11[] = {"reset_all",2,4346,121.325958,110.262848,211.326019,160.263031,0.000000,"reset all"};
+item12[] = {"__alive",4,218,247.383392,113.809601,337.383392,163.809601,1.000000,"!alive"};
+item13[] = {"security_reset",2,250,123.435287,14.927954,213.435303,64.928101,0.000000,"security reset"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {4,8};
+link6[] = {5,6};
+link7[] = {6,7};
+link8[] = {7,4};
+link9[] = {8,9};
+link10[] = {9,10};
+link11[] = {9,12};
+link12[] = {10,11};
+link13[] = {11,3};
+link14[] = {12,13};
+link15[] = {13,3};
+globals[] = {0.000000,0,0,0,0,640,480,1,20,6316128,1,-251.899887,499.785400,499.805206,-117.399681,749,615,1};
+window[] = {0,-1,-1,-1,-1,1010,250,1690,250,1,767};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "checkForAdmin";
+  class States
+  {
+    /*%FSM<STATE "start">*/
+    class start
+    {
+      name = "start";
+      init = /*%FSM<STATEINIT""">*/"private [""_timenow"",""_uid""];" \n
+       "_timenow = time + 10;" \n
+       "player setVariable [""e_p_isadmin"", false];"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "sleep_10">*/
+        class sleep_10
+        {
+          priority = 0.000000;
+          to="loop";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "loop">*/
+    class loop
+    {
+      name = "loop";
+      init = /*%FSM<STATEINIT""">*/"player setVariable [""e_p_isadmin"", false];"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "alive_player">*/
+        class alive_player
+        {
+          priority = 0.000000;
+          to="loop_1";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"alive player"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "loop_1">*/
+    class loop_1
+    {
+      name = "loop_1";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "wait_for_admin">*/
+        class wait_for_admin
+        {
+          priority = 1.000000;
+          to="set_admin";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(serverCommandAvailable ""#shutdown"") || !isMultiplayer"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "logout">*/
+        class logout
+        {
+          priority = 0.000000;
+          to="delete_admin";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(serverCommandAvailable ""#shutdown"") && (player getVariable ""e_p_isadmin"") && isMultiplayer"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "delete_admin">*/
+    class delete_admin
+    {
+      name = "delete_admin";
+      init = /*%FSM<STATEINIT""">*/"player setVariable [""e_p_isadmin"", false];"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "true">*/
+        class true
+        {
+          priority = 0.000000;
+          to="loop_1";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "set_admin">*/
+    class set_admin
+    {
+      name = "set_admin";
+      init = /*%FSM<STATEINIT""">*/"player setVariable [""e_p_isadmin"", true];" \n
+       "" \n
+       "uid_JIP_store = getPlayerUID player;" \n
+       "[uid_JIP_store, [true,CB_suppoints]] call XNetSetJIP;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "logout">*/
+        class logout
+        {
+          priority = 3.000000;
+          to="reset_all";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(isMultiplayer && !(serverCommandAvailable ""#shutdown""))"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "__alive">*/
+        class __alive
+        {
+          priority = 1.000000;
+          to="security_reset";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!alive player"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "reset_all">*/
+    class reset_all
+    {
+      name = "reset_all";
+      init = /*%FSM<STATEINIT""">*/"player setVariable [""e_p_isadmin"", false];" \n
+       "" \n
+       "if (X_JIPH getVariable ""MHQ_is_locked"") then {" \n
+       "	[""lock_it"", [MHQ,false]] call XNetCallEvent;" \n
+       "	[""MHQ_is_locked"",false] call XNetSetJIP;" \n
+       "};" \n
+       "if (X_JIPH getVariable ""AHQ_is_locked"") then {" \n
+       "	[""lock_it"", [AHQ,false]] call XNetCallEvent;" \n
+       "	[""AHQ_is_locked"",false] call XNetSetJIP;" \n
+       "};" \n
+       "" \n
+       "uid_JIP_store = getPlayerUID player;" \n
+       "[uid_JIP_store, [false,CB_suppoints]] call XNetSetJIP;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "alive_player">*/
+        class alive_player
+        {
+          priority = 0.000000;
+          to="loop_1";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"alive player"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "security_reset">*/
+    class security_reset
+    {
+      name = "security_reset";
+      init = /*%FSM<STATEINIT""">*/"player setVariable [""e_p_isadmin"", false];"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "alive_player">*/
+        class alive_player
+        {
+          priority = 0.000000;
+          to="loop_1";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"alive player"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="start";
+  finalStates[] =
+  {
+  };
+};
+/*%FSM</COMPILE>*/

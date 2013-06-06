@@ -1,0 +1,187 @@
+#include "setup.sqf"
+Language,English,German
+
+#ifdef __BLUE__
+	STR_a_gren,build MK19-Nest,MK19 Pod errichten
+	STR_a_aa,build Stinger-Nest,Stinger Pod errichten
+	STR_a_tow,build TOW-Nest,TOW Pod errichten
+	STR_a_arti,build M-119,M-119 errichten
+#endif
+#ifdef __RED__
+	STR_a_gren,build AGS30-Nest,AGS30 Pod errichten
+	STR_a_aa,build Igla-Nest,Igla Pod errichten
+	STR_a_tow,build METIS-Nest,METIS Pod errichten
+	STR_a_arti,build D30,D30 errichten
+#endif
+
+STR_welcome,Welcome to Evolution 2,Willkommen zu Evolution 2
+STR_welcome2,Welcome soldier! If you have any questions may be the briefing is able to assist you.,Willkommen Soldat! Solltest du irgendwelche Fragen haben kann dir vieleicht das Briefing behilflich sein.
+STR_welcome3,Check you map (M) to find out the actual target location.,Schau auf deine Karte (M) um deinen aktuellen Einsatzort zu finden.
+
+STR_a_capture,Capture,Festnehmen
+STR_a_error,Error,Fehler
+STR_a_abbort,Abbort,Abbruch
+STR_a_ing,build FARP,FARP errichten
+STR_a_medic,build field hospital,Feldlazarett errichten
+STR_a_mg,build MG-Nest,MG-Nest errichten
+STR_a_trench,entrech,eingraben
+STR_a_impossible,This action isn't possible on the Aitfield!,Diese Aktion ist auf dem Flugplatz nicht moeglich!
+STR_a_impossible2,This ground is not suitable for the construction.,Dieser Untergrund ist fuer den Bau nicht geeignet.
+STR_a_impossible3,This action is only on the airfield possible!,Diese Aktion ist nur auf dem Flugfeld moeglich!
+STR_a_truck,You are to far away from a Repair-Truck!,Du bist zu weit von einem Reparatur-LKW entfernt!
+STR_a_truck1,You are to far away from a Ammo-Truck!,Du bist zu weit von einem Munitions-LKW entfernt!
+STR_a_truck2,You are to far away from a MedEvac!,Du bist zu weit von einem Sanitaetsfahrzeug entfernt!
+STR_a_artch,press Weaponchange button on KeyBoard to switch between HE and AT Ammo,Drueck die F-Taste um zwischen HE und AT Munition zu wechseln
+STR_a_nogrnen,You need a weapon with grenadelauncher to di this!,Du benoetigst eine Waffe mit Granatwerfer um die Aktion ausfuehren zu koennen!
+STR_a_noat,You can not build a TOW_POD without Javelin-Launcher or Metis-Launcher or Dragon-Launcher!,Du benoetigst eine Javlin oder einen Dragon-Launcher oder eine Metis um diese Aktion ausfuehren zu koennen!
+STR_a_noaa,You can not use this action without any aa-launchers!,Du kannst die Aktion ohne eine Luftabwehrwaffe nicht ausfuehren!
+STR_a_nomg,You cannot do this without a mashinegun!,Fuer diese Aktion benoetigst du ein Maschinengewehr!
+STR_a_base,~ Move to Base,~ Gehe zur Basis
+STR_a_mhq,~ Move to Mobile HQ,~ Gehe zum MHQ
+STR_a_ahq,~ Move to Air HQ,~ Gehe zum AHQ
+STR_a_farpg,~ Move to german FARP,~ Gehe zum deutschen Aussenposten
+STR_a_farpcz,~ Move to czech FARP,~ Gehe zum tschechischen Aussenposten
+STR_a_farpus,~ Move to US FARP,~ Gehe zum amerikanischen Aussenposten
+STR_a_lshead,Done!,Erledigt!
+STR_a_lsbody,Loadout saved...,Ausruestung gespeichert...
+STR_a_tomi,call Tomahawk,Tomahawk anfordern
+STR_a_chq,Headquarter,Hauptquartier
+STR_a_cload,load cargo,Fracht einladen
+STR_a_sl,Save Loadout,Ausruestung behalten
+STR_a_gbp,Ger Backpack,Rucksack nehmen
+STR_a_halo,HALO-jump,HALO-Sprung
+STR_a_reject,reject the application,Anfrage ablehnen
+
+STR_o_hosp,MASH,Lazarett
+STR_o_farp,FARP,FARP
+STR_o_wsfailhead,Error,Fehler
+STR_o_wsfailbody,You need a primary weapon to save your current loadout!,Du hast keine Primaerwaffe und kannst daher nicht speichern!
+
+
+STR_i_jrequ,%1 wants to join your squad. Making your choise.,%1 moechte deinem Team beitreten. Treffe deine Entscheidung.
+STR_i_bclear,Your team has freed the city,dein Team hat die Stadt befreit
+STR_i_hclear,%1 clear,%1 befreit
+STR_i_offi,Officer,Offizier
+STR_i_rtower,Radiotower,Funkturm
+STR_i_capt,Soldier get captured,Soldat gefangen genommen
+STR_i_ofc_dead,Officer dead,Offizier tot
+STR_i_ofc_deadb,the officer still not alive,Der Offizier ist gestorben
+STR_i_ofc_dead2,Officer killed,Offizier getoetet
+STR_i_ofc_deadb2,you have broken the rules of engagement!,du hast gegen die Kriegsregeln verstossen!
+STR_i_ofc_fle,Officer get away,Offizier flieht
+STR_i_ofc_fleb,you are to far away from him,du bist zu weit weg von ihm
+STR_i_ofc_cap,Officer captured,Offizier gefangen
+STR_i_ofc_pris,You have earned Bonuspoints. Bring him to prison to earn more points.,Du hast Bonuspunkte erhalten. Bring ihm zum Gefaegnis fuer mehr Bonuspunkte.
+STR_i_ofc_pris2,You have earned Bonuspoints. The officer is in prison - good job.,Du hast Bonuspunkte erhalten. Der Offizier ist im Gefaegnis - gute Arbeit.
+STR_i_engr,points rewarded for vehicle repair,Punkte erhalten fuer Fahrzeugreparatur
+STR_i_medr,points rewarded for healing your buddy,Punkte erhalten erhalten fuer das heilen deines Kameraden
+STR_i_twait,You must wait 15 minutes between every Tomahawk launch.,Dir steht nur alle 15 Minuten ein Tomahawk zur Verfuegung.
+STR_i_tagain,Tomahawk support avalible again...,Ein weiterer Tomahawk steht zu deiner Verfuegung...
+STR_i_tarea,Click on the map to designate target-area,Klicke auf die Karte um ein Zielgebiet zu markieren
+STR_i_tbrape,Tomahawk launch abborted! Targetarea is our Base!,Tomahawkabschuss abgebrochen! Zielgebiet ist unsere Base!
+STR_i_mhqbroken,The MHQ was destroyed!,Das MHQ wurde zerstoert!
+STR_i_ahqbroken,The AHQ was destroyed!,Das AHQ wurde zerstoert!
+STR_i_headConter,Conterattack,Gegenangriff
+STR_i_bodyConter,Enemy troops attack your base!,Gegnerische Truppen greifen die Basis an!
+STR_i_headEin,Warning...,Warnung...
+STR_i_bodyEin,Enemys are in our Base spotted,Gegner wurden in unserer Basis gesichtet.
+STR_i_headEout,Base clear...,Basis befreit...
+STR_i_bodyEout,all enemys in our base are dead or fleeing,Alle Gegner in unserer Basis sind tot oder auf der Flucht.
+STR_i_bonush,Extra-Points,Bonuspunkte
+STR_i_bonuslaserh,Laserreward,Laserreward
+STR_i_bonuslaserb,You have earn extra Scorepoints for marked enemys with your Laserdesignator.,Du hast dir extra Punkte fuer das markieren von Zielen mit dem Laserdesignator verdient.
+STR_i_bonusb1,You have add 1 extra point per borded men in the war.Du hast 1 Punkt erhalten fuer jeden transportierten Kamerad.
+STR_i_bonusb3,You have add 3 extra points per borded men in the war.Du hast 3 Punkte erhalten fuer jeden transportierten Kamerad.
+STR_i_incommingh,Warning!,Warnung!
+STR_i_incommingb,missile incomming...,Rackete geortet...
+STR_i_info,Info,Info
+STR_i_chrep,Helicopter Servicepoint,Helikopter Servicepunkt
+STR_i_jetrep,Jet Servicepoint,Jet Servicepunkt
+STR_i_ctosmall,This won't fit in the cargospace.,Das passt nicht in diesen Laderaum.
+STR_i_nothingir,Nothing to load in range,nichts zum Einladen in Reichweite
+STR_i_cfull,Cargo is already full,Transporter ist bereits beladen
+STR_i_takenote,Take note,Beachte
+STR_i_thottle,Before you unload the cargo you have to throttle your speed under 250!!!,Bevor du den Transporter entlaedst, bremse dein Fahrzeug auf 250 ab!!!
+STR_o_bpfail,you have already a launcher on your back,Du hast bereits einen Launcher auf deinem Ruecken
+STR_n_avalible,This function was disabled in the lobby parameters.,Diese Funktion wurde in den Lobbyparametern deaktiviert.
+STR_i_mhq1,MHQ gets transported by airlift... you have to still waiting.,Das MHQ wird eben transportiert... du musst leider warten.
+STR_i_mhq2,MHQ is currently driving... you have to still waiting.,Das MHQ fährt im Moment... du musst leider warten.
+STR_i_mhq3,MHQ is currently in water... teleport not possible.,Das MHQ befindet sich im Wasser... Teleport nicht möglich.
+STR_i_ahq1,AHQ is currently in water... teleport not possible.,Das AHQ befindet sich im Wasser... Teleport nicht möglich.
+STR_i_tel1,Teleport not available in a vehicle !!!,Teleport nicht möglich in einem Fahrzeug !!!
+STR_i_tel2,Teleporting not possible while swimming !!!,Teleport nicht möglich während des schwimmen !!!
+STR_i_pinside,A player is inside the vehicle.,Ein Spieler befindet sich noch in dem Fahrzeug.
+STR_i_t_has_owner,this truck has an another player as owner.,Dieser Truck gehoehrt einem anderen Spieler.
+STR_i_destroyed,Destroyed!,Zerstoert!
+STR_i_destbody,the radio tower is history,der Funkturm ist Geschichte
+STR_i_hb,Not possible in a vehicle,Nicht moeglich in einem Fahrzeug
+STR_i_owngroup,You cant join or leave your own group,Du kannst nicht deiner eigenen Gruppe beitreten oder diese verlassen.
+STR_i_ai_dimissed,All your AI-soldiers are dismissed.,Alle deine KI-Soladetn wurden entlassen.
+STR_i_another_player_dimissed,%1 has left your group.%1 hat deine Gruppe verlassen.
+STR_i_mhq_d,Your MHQ was destroyed. It will respawn at your base.,Dein MHQ wurde zerstoert. Es wird bald wieder in deiner Basis zur Verfuegung stehen.
+STR_i_ahq_d,Your AHQ was destroyed. It will respawn at your base.,Dein AHQ wurde zerstoert. Es wird bald wieder in deiner Basis zur Verfuegung stehen.
+STR_i_any_d,One of your mobile spawn-vehicles was destroyed. It will respawn at your base.,Einer deiner mobilen Respawnfahrzeuge wurde zerstoert. Es wird bald wieder in deiner Basis zur Verfuegung stehen.
+STR_i_mhq_nor,Oh no! your MHQ was destroyed once too often and is no longer available.,Oh nein! Dein MHQ wurde einmal zu viel zerstoert und steht dir nicht mehr zur Verfuegung.
+STR_i_ahq_nor,Oh no! your AHQ was destroyed once too often and is no longer available.,Oh nein! Dein AHQ wurde einmal zu viel zerstoert und steht dir nicht mehr zur Verfuegung.
+STR_a_nopara,You need a parachute pack first.,Du benoetigst einen Fallschirm fuer diese Aktion.
+STR_i_openmap,Open your map to choose a parachute location - klick for this on the map.,Oeffne deine Karte um eine Absprungregion zu waehlen - Klick dazu mit der Maus auf die Karte.
+STR_i_openmap2,Klick on the map to choose a parachute location.,Klick auf die Karte um eine Absprungzone zu waehlen.
+STR_i_requ,Request,Anfrage
+STR_i_accept,you was added to your favorite squad!,du wurdest in den Squad deiner Wahl aufgenommen!
+STR_i_nopos,Sorry - I have no position for you at this time.,Tut mir leid aber ich habe im Moment keine Position fuer dich gefunden.
+STR_i_request_is_set,Your request was transmitted - wait for an answer.,Deine Anfrage wurde weitergeleitet - warte auf eine Antwort.
+STR_i_request_is_already_set,No multiple requests are possible.,Mehrere Anfragen nicht moeglich.
+STR_i_tk,Teamkill,Teamkill
+STR_i_tk_b,you got a negative score for a teamkill!,du bekommst Punkte abgezogen wegen eines Teamkills!
+STR_i_pn_chnaged,The player %1 has changed his name. His old name was %2.,Der Spieler %1 hat seinen Namen geandert. Sein vorheriger Name war %2.
+STR_i_autokick,Autokick,Autokick
+STR_i_autokick_reason_tk,%1 has been kicked due to his %2 Team Kill.,%1 wurde gekickt wegen seines %2 Teamkills.
+STR_i_autokick_reason_tk_ambu,%1 has been kicked due to his %2 destroyed mobile spawn.,%1 wurde gekickt weil er bereits %2 mal einen mobiles Spawnfahrzeug zerstoert hat.
+STR_i_adminkick,Player was kicked,Spieler wurde gekickt
+STR_i_adminkick_reason,%1 has been by %2.,%1 wurde gekickt von %2.
+STR_i_bon_down,%1 is down and needs help,%1 wurde getroffen und braucht deine Hilfe
+
+
+
+STR_d_backp,Take a Backpack,Rucksack nehmen
+STR_d_backpi,click on picture to equip,klicke auf das Bild zum ausruesten
+STR_d_cancel,Cancel,Abbruch
+STR_d_hq,Headquarter,Hauptquartier
+STR_d_mainmenu,Mainmenu,Hauptmenue
+STR_d_back,Back,Zurueck
+STR_d_supprequest,Requesting,Anfordern
+STR_d_cost,Cost:,Kosten:
+STR_d_score,Supp.Score:,Supp.Punkte:
+STR_d_options,Graphic Settings,Grafik Optionen
+STR_d_grass,Grass,Gras
+STR_d_Environment,Environment,Umwelt
+STR_d_avdist,Air Viewdistance, Luft Sichtweite
+STR_d_vdist,Viewdistance,Sichtweite
+STR_d_cgs,Clientside Graphic Settings,Spielereigene Grafikoptionen
+STR_d_recruit,Recruiting,Rekrutieren
+STR_d_rechint,Recruit your own AI-soldiers,Rekrutiere deine eigenen KI-Soldaten
+STR_d_recuting,Recruiting,Rekrutieren
+STR_d_accainum,current Groupzise:,aktuelle Gruppenstaerke:
+STR_d_maxainum,maximum Groupzise:,maximale Gruppenstaerke:
+STR_d_nolead,You must be a leader to recruit.,Du bist kein Gruppenfuehrer und kannst daher nicht rekrutieren.
+STR_d_groups,Player Groups,Spieler Gruppen
+STR_d_grphint,Join a other players group.,Tritt der Gruppe eines anderen Spielers bei.
+STR_d_rech2,Weapons,Bewaffnung
+STR_d_join,Join this Group,dieser Gruppe beitreten
+STR_d_leavegrp,leave Group,Gruppe verlassen
+STR_d_sms,Sidemissions,Nebenaufgaben
+STR_d_admin,Administrator,Administrator
+STR_d_adminhint,,
+STR_d_noadmin,Sorry this tool is only for administrator avalible.,Dieses Tool ist leider nur fuer einen Administrator verfuegbar.
+STR_d_smhint,choose a Task for earn extra points,Waehle eine Aufgabe um extra Punkte zu verdienen
+STR_d_accept,Accept,Annehmen
+STR_d_smbounty,Bounty:,Belohnung:
+STR_d_nomembers,no other members in your group,keine weiteren Mitglieder in deiner Gruppe
+STR_d_derecuting,Dismiss,Entlassen
+STR_d_player_dimissed,You are withdrawn from your current group.,Du bist aus dener aktuellen Gruppe ausgetreten.
+STR_d_dismiss_first,You are already a member of another group of players.,Du bist bereits Mitglied in einer anderen Spielergruppe.
+STR_d_na,Vehicle is destroyed,Fahrzeug wurde zerstoert
+STR_d_no_selfkick,You can't kick yourself,Du kannst dich nicht selbst kicken
+STR_d_no_adminkick,You can't kick an admin,Du kannst keinen Admin kicken
+
+

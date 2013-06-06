@@ -1,0 +1,100 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, FastTime">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,4346,-50.000000,-175.000000,50.000000,-125.000000,0.000000,"Start"};
+item1[] = {"_",8,218,-50.000000,-100.000000,50.000000,-50.000000,0.000000,""};
+item2[] = {"Loop",2,250,-50.000000,-25.000000,50.000000,25.000000,0.000000,"Loop"};
+item3[] = {"_",4,218,-50.000000,50.000000,50.000000,100.000000,0.000000,""};
+item4[] = {"Send",2,250,-50.000000,150.000000,50.000000,200.000000,0.000000,"Send"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,3};
+globals[] = {25.000000,1,0,0,0,640,480,1,11,6316128,1,-302.111694,319.264893,218.814743,-311.019775,923,921,1};
+window[] = {2,-1,-1,-32000,-32000,918,200,1160,200,3,941};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "FastTime";
+  class States
+  {
+    /*%FSM<STATE "Start">*/
+    class Start
+    {
+      name = "Start";
+      init = /*%FSM<STATEINIT""">*/"private [""_timenow"",""_timerate"",""_currentTime""];" \n
+       "_timerate = 0.00666;" \n
+       "_timerate = _this select 0;" \n
+       "_currentTime = DayTime;" \n
+       "[""EVO_currentTime"",_currentTime,true] call XNetSetJIP;" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "_">*/
+        class _
+        {
+          priority = 0.000000;
+          to="Loop";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Loop">*/
+    class Loop
+    {
+      name = "Loop";
+      init = /*%FSM<STATEINIT""">*/"_timenow = time + 1;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "_">*/
+        class _
+        {
+          priority = 0.000000;
+          to="Send";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time >= _timenow"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Send">*/
+    class Send
+    {
+      name = "Send";
+      init = /*%FSM<STATEINIT""">*/"skipTime _timerate;" \n
+       "_currentTime = DayTime;" \n
+       "[""EVO_currentTime"",_currentTime,true] call XNetSetJIP;" \n
+       "_timenow = time + 1;" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "_">*/
+        class _
+        {
+          priority = 0.000000;
+          to="Send";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time >= _timenow"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Start";
+  finalStates[] =
+  {
+  };
+};
+/*%FSM</COMPILE>*/

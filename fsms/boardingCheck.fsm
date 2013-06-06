@@ -1,0 +1,177 @@
+/*%FSM<COMPILE "C:\Users\TcB\Documents\ArmA 2 Other Profiles\Psychobastard\MPMissions\tcb_co@32_evo_master.Takistan\fsms\scriptedFSM.cfg, boarding_check">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-41.459267,-179.033646,48.540733,-129.033646,0.000000,"Start"};
+item1[] = {"sleep_1",4,218,-40.786549,-85.293549,49.213451,-35.293549,0.000000,"sleep 1"};
+item2[] = {"setViewDist",2,250,-41.629257,11.648373,48.370758,61.648373,0.000000,"setViewDist"};
+item3[] = {"waiting",4,218,-42.471973,179.289597,47.528027,229.289597,0.000000,"waiting"};
+item4[] = {"check",2,250,-41.769787,340.129089,48.230228,390.129089,0.000000,"check"};
+item5[] = {"borded",4,218,136.605423,341.542389,226.605560,391.542358,0.000000,"borded"};
+item6[] = {"unborded",4,218,-229.230652,176.997040,-139.230331,226.997040,1.000000,"unborded"};
+item7[] = {"disableUserInput",2,250,135.999710,179.318863,225.999725,229.318878,0.000000,"disableUserInput"};
+item8[] = {"Air_",4,218,326.993439,180.429291,416.993439,230.429291,0.000000,"Air?"};
+item9[] = {"waiting",4,218,137.110138,11.644142,227.110107,61.644165,1.000000,"waiting"};
+item10[] = {"setViewDist_1",2,250,325.882996,11.644140,415.883026,61.644165,0.000000,"setViewDist"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {4,6};
+link6[] = {5,7};
+link7[] = {6,2};
+link8[] = {7,8};
+link9[] = {7,9};
+link10[] = {8,10};
+link11[] = {9,2};
+link12[] = {10,9};
+globals[] = {0.000000,0,0,0,0,640,480,1,13,6316128,1,-572.981262,572.981018,446.392273,-236.521286,1032,615,1};
+window[] = {0,-1,-1,-32000,-32000,918,134,1574,158,1,1050};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "boarding_check";
+  class States
+  {
+    /*%FSM<STATE "Start">*/
+    class Start
+    {
+      name = "Start";
+      init = /*%FSM<STATEINIT""">*/"private [""_pvec"",""_toWait"",""_timenow""];" \n
+       "_timenow = time;" \n
+       "_toWait = _timenow + 1;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "sleep_1">*/
+        class sleep_1
+        {
+          priority = 0.000000;
+          to="setViewDist";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _toWait"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "setViewDist">*/
+    class setViewDist
+    {
+      name = "setViewDist";
+      init = /*%FSM<STATEINIT""">*/"setViewDistance EVO_vdist;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "waiting">*/
+        class waiting
+        {
+          priority = 0.000000;
+          to="check";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(vehicle player != player) and ((player == driver (vehicle player)) || (toUpper (getText(configFile >> ""CfgVehicles"" >> typeOf (vehicle player) >> ""vehicleClass"")) == ""STATIC""))"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "check">*/
+    class check
+    {
+      name = "check";
+      init = /*%FSM<STATEINIT""">*/"if (E_lock == 0 or E_lock == 2) then {" \n
+       "	disableUserInput true;" \n
+       "	[player] call EVO_ranked_boarding;" \n
+       "};" \n
+       "" \n
+       "_timenow = time;" \n
+       "_toWait = _timenow + 1;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "unborded">*/
+        class unborded
+        {
+          priority = 1.000000;
+          to="setViewDist";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(vehicle player == player) && (time > _toWait)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "borded">*/
+        class borded
+        {
+          priority = 0.000000;
+          to="disableUserInput";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(vehicle player != player) && (time > _toWait)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "disableUserInput">*/
+    class disableUserInput
+    {
+      name = "disableUserInput";
+      init = /*%FSM<STATEINIT""">*/"disableUserInput false;" \n
+       "_pvec = vehicle player;" \n
+       "[] call EVO_topic_info_vehicle;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "waiting">*/
+        class waiting
+        {
+          priority = 1.000000;
+          to="setViewDist";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_pvec != vehicle player) || (vehicle player == player) || !alive _pvec"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Air_">*/
+        class Air_
+        {
+          priority = 0.000000;
+          to="setViewDist_1";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_pvec isKindOf ""Air"""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "setViewDist_1">*/
+    class setViewDist_1
+    {
+      name = "setViewDist_1";
+      init = /*%FSM<STATEINIT""">*/"setViewDistance EVO_avdist;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "waiting">*/
+        class waiting
+        {
+          priority = 1.000000;
+          to="setViewDist";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_pvec != vehicle player) || (vehicle player == player) || !alive _pvec"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Start";
+  finalStates[] =
+  {
+  };
+};
+/*%FSM</COMPILE>*/

@@ -1,0 +1,69 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, RemoveVehi">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-32.132942,-97.418594,57.867043,-47.418575,0.000000,"Start"};
+item1[] = {"Not_alive_vehicl",4,218,-31.245275,6.772964,58.754704,56.772957,0.000000,"Not alive vehicle"};
+item2[] = {"End",1,4346,-32.280891,111.371361,57.719147,161.371338,0.000000,"End"};
+link0[] = {0,1};
+link1[] = {1,2};
+globals[] = {0.000000,0,0,0,0,640,480,1,4,6316128,1,-302.111694,319.264893,218.814743,-311.019775,600,573,1};
+window[] = {0,-1,-1,-1,-1,743,25,985,25,1,618};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "RemoveVehi";
+  class States
+  {
+    /*%FSM<STATE "Start">*/
+    class Start
+    {
+      name = "Start";
+      init = /*%FSM<STATEINIT""">*/"private [""_v"",""_type""];" \n
+       "_v = _this;" \n
+       "_type = typeOf _v;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Not_alive_vehicl">*/
+        class Not_alive_vehicl
+        {
+          priority = 0.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!alive _v"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "End">*/
+    class End
+    {
+      name = "End";
+      init = /*%FSM<STATEINIT""">*/"private [""_dir"", ""_pos"", ""_vel"", ""_dv""];" \n
+       "_dir = direction _v;" \n
+       "_pos = position _v;" \n
+       "_vel = velocity _v;" \n
+       "{deleteVehicle _x} forEach ([_v] + crew _v);" \n
+       "_dv = createVehicle [_type, _pos, [], 0, ""CAN_COLLIDE""];" \n
+       "_dv setDir _dir;" \n
+       "_dv setPos _pos;" \n
+       "_dv setVelocity _vel;" \n
+       "_dv setFuel 0;" \n
+       "_dv setDamage 1;" \n
+       "dead_list set [count dead_list, _dv];"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Start";
+  finalStates[] =
+  {
+    "End",
+  };
+};
+/*%FSM</COMPILE>*/
