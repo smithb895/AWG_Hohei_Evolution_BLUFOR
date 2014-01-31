@@ -70,6 +70,13 @@ __aiSetVar(_injuredperson) ["healer",ObjNull,true];
 _healer playAction "medicStop";
 _healer setBehaviour _behaviour;
 
+if (isServer) then {
+		_healer addScore 2; // for hosted environment
+	} else {
+		paddscore = [_healer, 2]; publicVariable "paddscore";
+	};
+
+
 if(time - _time > _damage) then {
 	__aiSetVar(_injuredperson) ["bon_ais_agony",false,true];
 };

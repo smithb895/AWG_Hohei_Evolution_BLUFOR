@@ -6,8 +6,8 @@ _current_target_pos = _current_target select 0;
 _current_target_radius = _current_target select 2;
 _num = 0;
 
-//random vehicle type -- give a 1:2 chance for a heavy armored vec
-_type = [EVO_e_wheeled,EVO_e_tracked,EVO_e_wheeled] call XfRandomArrayVal;
+//random vehicle type
+_type = [EVO_e_wheeled,EVO_e_tracked,EVO_e_aa] call XfRandomArrayVal;
 
 _tracked_grp = [EVO_enemy_side] call EVO_createGroup;
 _unit = _type call XfRandomArrayVal;

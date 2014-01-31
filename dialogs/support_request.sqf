@@ -17,7 +17,7 @@ _mord = (EVO_SupList select support_index) select 6;
 
 if (!EVO_firemission) then {
 	if (support_place_choosen) then {
-		if (CB_suppoints >= _mcost) then {
+		if ((CB_suppoints >= _mcost) OR ((getPlayerUID player) in Evo_Admins)) then {
 			if(AirportIn distance (getMarkerPos "support_marker_location") < 600) then {
 				_description ctrlSetText localize "STR_M04t88";//zu dicht an der base
 			} else {

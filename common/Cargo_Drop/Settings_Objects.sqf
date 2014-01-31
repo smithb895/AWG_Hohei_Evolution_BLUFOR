@@ -28,7 +28,10 @@ _ObjectsS = [
 //// Medium
 //// UH1_Base, UH60_Base, UH60M_base_EP1, AW159_Lynx_BAF, BAF_Merlin_HC3_D, Mi17_base, Mi171Sh_Base_EP1, Mi24_Base, UH1H_base
 _ObjectsM = [
-	"Motorcycle"
+	"Motorcycle",
+	"HMMWV_Base",
+	"UAZ_Base",
+	"BMP2_Ambul_Base"
 ];
 
 
@@ -36,7 +39,9 @@ _ObjectsM = [
 //// CH47_base_EP1, MV22
 _ObjectsL = [
 	"Motorcycle",
-	"Car"
+	"Car",
+	"Boat",
+	"Tracked_APC"
 ];
 
 
@@ -44,8 +49,8 @@ _ObjectsL = [
 //// C130J_base
 _ObjectsXL = [
 	
-	"Motorcycle",
-	"LandVehicle",
+	"Car",
+	"Tank",
 	"Truck",
-	"Wheeled_APC"
+	"Boat"
 ];

@@ -16,21 +16,21 @@ playMusic "Short01_Defcon_Three";
 #else
 playMusic "EP1_Track01D";
 #endif
-if (daytime > 20.50 || daytime < 4.15) then {camUseNVG true};
+if (daytime > 20.50 || daytime < 4.15) then {camUseNVG false};
 
 _camstart =  EVO_cam_prepare;
-_camera = "camera" CamCreate [(position _camstart select 0), (position _camstart select 1) + 1, 2];
+_camera = "camera" CamCreate [(position _camstart select 0), (position _camstart select 1) + 1, 50];
 _camera cameraEffect ["internal","back"];
 waitUntil {preloadCamera position _camstart};
 _camera camSetTarget player;
-_camera camPrepareFOV 0.700;
+_camera camPrepareFOV 1.00;
 _camera camCommitPrepared 0;
 waitUntil {camCommitted _camera};
 sleep 0.5;
 
 _camera camSetTarget player;
 _camera camSetPos [(position EVO_cam1 select 0), (position EVO_cam1 select 1) , 10];
-_camera camPrepareFOV 0.700;
+_camera camPrepareFOV 1.00;
 _camera camCommit 12;
 #ifdef __BLUE__
 TitleRsc["Evo_color_blue_1","PLAIN"];
@@ -52,13 +52,13 @@ sleep 2;
 #ifndef __A2__
 [localize "STR_welcome", name player, "the Evolution must go on!"] spawn BI_fnc_infoText;
 #endif
-sleep 6.3;
+sleep 4;
 titleCut ["","Withe out",0.6];
 sleep 0.5;
 waitUntil {camCommitted _camera};
 
 _camera camPrepareTarget position player;
-_camera camSetPos [(position EVO_cam2 select 0), (position EVO_cam2 select 1) , 25];
+_camera camSetPos [(position EVO_cam2 select 0), (position EVO_cam2 select 1) , 3];
 _camera camCommit 0;
 waitUntil {camCommitted _camera};
 
@@ -66,9 +66,9 @@ _camera camSetTarget player;
 _camera camSetPos [(position player select 0), (position player select 1), 1.5];
 titleCut ["","Withe in",0.8];
 sleep 0.4;
-_camera camPrepareFOV 0.500;
+_camera camPrepareFOV 1.00;
 _camera camCommit 6.6;
-sleep 5.9;
+sleep 3;
 titleCut ["","Withe out",0.6];
 waitUntil {camCommitted _camera};
 

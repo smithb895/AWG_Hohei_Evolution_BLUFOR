@@ -2,6 +2,7 @@
 private ["_p", "_exit_it","_go_out"];
 _p = _this select 1;
 _go_out = false;
+_UID = getPlayerUID player;
 
 if (__isBlue and !__OAonly) then {
 	_truck = objNull;
@@ -48,6 +49,7 @@ WaitUntil {animationState _p != "AinvPknlMstpSlayWrflDnon_medic"};
 //_mark = format ["%1mash",(name _p)];
 mtent = "Mash" createVehicle _pos; __sleep;
 mtent setVariable ["EVO_med",_p];
+diag_log format ["Player %1 pitched a MASH at Position [ %2 ] ArmA2Key: %3", name player, _pos, _UID];
 _pos = position mtent;
 _pos3 = [(_pos select 0)+3,(_pos select 1)+3,_pos select 2];
 _pos4 = [(_pos select 0)+4,(_pos select 1)+5,_pos select 2];

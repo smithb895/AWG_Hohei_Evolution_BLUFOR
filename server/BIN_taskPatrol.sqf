@@ -45,11 +45,11 @@ ArmaIIholic
 	_debug = if ((count _this) > 3) then {_this select 3} else {0};
 	_blacklist = if ((count _this) > 4) then {_blacklist = _this select 4} else {[]};
 
-	_mode = ["YELLOW", "RED"] call BIS_fnc_selectRandom;
+	_mode = ["RED","YELLOW"] call BIS_fnc_selectRandom;
 	_formation = ["STAG COLUMN", "WEDGE", "ECH LEFT", "ECH RIGHT", "VEE", "DIAMOND"] call BIS_fnc_selectRandom;
 
-	_grp setBehaviour "AWARE";
-	_grp setSpeedMode "LIMITED";
+	_grp setBehaviour "COMBAT";
+	_grp setSpeedMode "NORMAL";
 	_grp setCombatMode _mode;
 	_grp setFormation _formation;
 

@@ -9,7 +9,7 @@ if(!(isPlayer _killer) and (side _killer == side _player)) then {
 	[EVO_grey,_txtpasshead,_txtpassbody] call BIS_EVO_Message;
 };
 
-if ((date select 3) < 4 or (date select 3) > 20) then {camUseNVG true} else {camUseNVG false};
+if ((date select 3) < 4 or (date select 3) > 20) then {camUseNVG false} else {camUseNVG false};
 
 _camera = "camera" camCreate [(position _player select 0)-0.75, (position _player select 1)-0.75,(position _player select 2) + 0.5];
 _camera cameraEffect ["internal","back"];

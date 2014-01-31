@@ -1,4 +1,5 @@
 // by Xeno
+
 #include "setup.sqf"
 private ["_heli_array", "_vec_a", "_vehicle", "_number_v", "_is_west_chopper", "_i", "_tt", "_ifdamage", "_empty", "_disabled", "_empty_respawn", "_startpos", "_hasbox", "_fuelleft"];
 if (!isServer) exitWith {};
@@ -74,6 +75,10 @@ while {true} do {
 			_vehicle = createVehicle [_vec_a select 6, _vec_a select 4, [], 0, "NONE"];
 			_vehicle setdir (_vec_a select 5);
 			_vehicle setpos (_vec_a select 4);
+			// COMMENCE SUPERXPDUDE EDIT
+			_vehicle setVehicleInit format ["%1;", 'this addeventhandler ["fired",{  if (vehicle (_this select 0) in list base ) then {deleteVehicle (_this select 6)}; }];'];
+			processInitCommands;
+			// END SUPERXPDUDE EDIT
 			
 			_vehicle setVariable ["d_vec_islocked", _isitlocked];
 			if (_isitlocked) then {_vehicle lock true};

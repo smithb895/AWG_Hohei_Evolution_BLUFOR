@@ -21,7 +21,7 @@ EVO_spawn_enemyAirDefence = {
 	if (_spawntype == "chopper") then {[_heli, 200] call XfSetHeight} else {[_heli, 600] call XfSetHeight};
 	_grp setCombatMode "RED";
 	if ((date select 3) < 4 or (date select 3) > 20) then {
-		_grp setBehaviour "CARELESS";
+		_grp setBehaviour "COMBAT";
 		vehicle (units _grp select 0) action ["LIGHT ON",vehicle (units _grp select 0)];
 	};
 	if (!isNull _heli) then {
@@ -42,7 +42,7 @@ waitUntil {__XJIPGetVar(current_target_index) != -1};
 sleep 15.98;
 
 while {true} do {
-	waitUntil {all_planes < 2};
+	waitUntil {all_planes < 4};
 	__MPCheck;
 	_num_p = call XPlayersNumber;
 	sleep (switch (true) do {

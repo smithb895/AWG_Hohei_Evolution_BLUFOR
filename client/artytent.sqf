@@ -36,8 +36,22 @@ _posd30  = getdir player;
 #endif
 d30 setdir _posd30;
 d30nest_pos = position d30;
-d30 addmagazine "20Rnd_120mmSABOT_M1A2";
-d30 addweapon "M256";
+//d30 addmagazine "20Rnd_120mmSABOT_M1A2";
+//d30 addweapon "M256";
+if (EVO_own_side == "WEST") then {
+	{d30 removeMagazine _x} forEach magazines d30;
+	d30 addmagazine "ARTY_30Rnd_105mmHE_M119";
+	d30 addmagazine "ARTY_30Rnd_105mmLASER_M119";
+	d30 addmagazine "ARTY_30Rnd_105mmSMOKE_M119";
+	d30 addmagazine "ARTY_30Rnd_105mmILLUM_M119";
+	} else {
+	{d30 removeMagazine _x} forEach magazines d30;
+	d30 addmagazine "ARTY_30Rnd_122mmHE_D30";
+	d30 addmagazine "ARTY_30Rnd_122mmLASER_D30";
+	d30 addmagazine "ARTY_30Rnd_122mmSMOKE_D30";
+	d30 addmagazine "ARTY_30Rnd_122mmILLUM_D30";
+};
+d30 setVariable ["ARTY_VEHICLE",true];
 player moveInGunner d30;
 _head = localize "STR_i_info";
 _body = localize "STR_a_artch";

@@ -35,14 +35,6 @@ execFSM "fsms\GroupClean.fsm";
 execFSM "fsms\NotAliveRemover.fsm";
 
 
-#ifndef __OA__
-if (__isBlue) then {
-	_pos = GetMarkerPos "ah_sw1";
-	_heli = createVehicle ["AH64D_Sidewinders", _pos, [], 0, "NONE"];
-	_heli setDir 134;
-};
-#endif
-
 #ifndef __Takistan__
 EVO_mapcenter = getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition");
 #else

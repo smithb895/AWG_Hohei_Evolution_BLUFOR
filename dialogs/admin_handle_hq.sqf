@@ -6,10 +6,11 @@ _mhqbutton = _dialog displayCtrl 72003;
 _ahqbutton = _dialog displayCtrl 72004;
 _mhqpic = _dialog displayCtrl 72006;
 _ahqpic = _dialog displayCtrl 72007;
+_UID = getPlayerUID player;
 
-_isadmin = if (player getVariable "e_p_isadmin" || isServer) then {true} else {false};
+//|| isServer) then {true} else {false};	
+_isadmin = _UID in Evo_Admins;
 if !(_isadmin) exitWith {_info ctrlSetText localize "STR_d_noadmin"};
-
 _hq = _this select 0;
 _str = "";
 
@@ -27,6 +28,7 @@ switch (_hq) do {
 				[EVO_brown,localize "STR_a_abbort",localize "STR_i_pinside","stop"] call EVO_Message;
 			};
 			if (count (crew _vec) == 0) then {_vec setVeloCity [0,0,0]};
+			diag_log format ["Admin %1 locked the MHQ - ArmA 2 Key: %2", name player, _uid];
 			["MHQ_is_locked",true] call XNetSetJIP;
 			["lock_it", [_vec, true]] call XNetCallEvent;
 			"MHQ locked" call XfGlobalChat;
@@ -35,6 +37,7 @@ switch (_hq) do {
 			_mhqpic ctrlSetStructuredText parseText format["<img image='%1'/>",_pic];
 		} else {
 			["MHQ_is_locked",false] call XNetSetJIP;
+			diag_log format ["Admin %1 unlocked the MHQ - ArmA 2 Key: %2", name player, _uid];
 			["lock_it", [_vec, false]] call XNetCallEvent;
 			"MHQ unlocked" call XfGlobalChat;
 			_mhqbutton ctrlSetText "Lock MHQ";
@@ -55,6 +58,7 @@ switch (_hq) do {
 				[EVO_brown,localize "STR_a_abbort",localize "STR_i_pinside","stop"] call EVO_Message;
 			};
 			["AHQ_is_locked",true] call XNetSetJIP;
+			diag_log format ["Admin %1 locked the AHQ - ArmA 2 Key: %2", name player, _uid];
 			["lock_it", [_vec, true]] call XNetCallEvent;
 			"AHQ locked" call XfGlobalChat;
 			_Ahqbutton ctrlSetText "Unlock AHQ";
@@ -62,6 +66,7 @@ switch (_hq) do {
 			_ahqpic ctrlSetStructuredText parseText format["<img image='%1'/>",_pic];
 		} else {
 			["AHQ_is_locked",false] call XNetSetJIP;
+			diag_log format ["Admin %1 unlocked the AHQ - ArmA 2 Key: %2", name player, _uid];
 			["lock_it", [_vec, false]] call XNetCallEvent;
 			"AHQ unlocked" call XfGlobalChat;
 			_ahqbutton ctrlSetText "Lock AHQ";

@@ -29,7 +29,8 @@ if (count _magazines > 0) then {
 		};
 	} forEach _magazines;
 	{
-		if (!isDedicated) then {[_object, format ["Reloading %1", _x]] call XfVehicleChat};
+		_mag_disp_name = [_x,2] call XfGetDisplayName;
+		if (!isDedicated) then {[_object, format ["Reloading %1", _mag_disp_name]] call XfVehicleChat};
 		sleep x_reload_time_factor;
 		if (!alive _object) exitWith {};
 		_object addMagazine _x;

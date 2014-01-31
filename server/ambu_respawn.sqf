@@ -4,11 +4,18 @@ private ["_marker","_unit","_rounds","_body1","_body2","_unitname","_delay","_li
 if (!isServer) exitWith {};
 _unit = _this select 0;
 _unitname = vehicleVarName _unit;
+switch (_unitname) do {
+	case ("AHQ") : {_delay = 300};
+	case ("MHQ") : {_delay = 180};
+	default {_delay = 30};
+};
+/*
 _delay = switch {_unitname} do {
 	case ("AHQ") : {EVO_AHQ_respawn_delay};
 	case ("MHQ") : {EVO_MHQ_respawn_delay};
-	default {60};
+	default {30};
 };
+*/
 _run = true;
 _rounds = 0;
 
@@ -39,6 +46,7 @@ switch (_unitname) do {
 	default {_body1 = localize "STR_i_any_d";_body2 = localize "STR_i_mhq_nor";};
 };
 
+
 while {_run} do {
 	waitUntil {!alive _unit};
 	_rounds = _rounds + 1;
@@ -50,6 +58,13 @@ while {_run} do {
 	};
 	if (!_run) exitWith {};
 	["evo_message_global",[EVO_brown,_head,_body1,"info"]] call XNetCallEvent;
+	/*
+	switch {_unitname} do {
+		case ("AHQ") : {sleep 600};
+		case ("MHQ") : {sleep 300};
+		default {sleep 30};
+	};
+	*/
 	sleep _delay;
 	deleteVehicle _unit;
 	deleteVehicle _light;

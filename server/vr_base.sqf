@@ -18,7 +18,7 @@ _air_vecinit = {
 			["say3D_sound", [(_this select 0),"incoming"]] call XNetCallEvent;
 			_head = localize "STR_i_incommingh";
 			_body = localize "STR_i_incommingb";
-			["evo_message", [EVO_blue,_head,_body,"achtung",driver (_this select 0)]] call XNetCallEvent;
+			["evo_message", [driver (_this select 0),EVO_blue,_head,_body,"achtung"]] call XNetCallEventSTO;
 		}
 	];
 	
@@ -53,7 +53,7 @@ while {true} do {
 			_unit setVehicleAmmo 0;
 			_unit setFuel 0;
 			_truedead = true;
-			sleep (_delay + random 30);
+			sleep (_delay + random 60);
 		} else {
 			_timeout = time + _delay;
 			waitUntil {(_timeout < time) || (!alive _unit) || ({alive _x} count crew _unit > 0)};

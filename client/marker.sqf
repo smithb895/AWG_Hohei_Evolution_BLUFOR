@@ -23,8 +23,9 @@ GlobalSleep=4;//Sleep between update markers
 //----------------------#Players#--------------------------
 AddPlayersToMap=true;
 AddPlayersToScreen=true;
-PlayersMarkerType=["b_inf"];
+//PlayersMarkerType=["b_inf"];
 PlayerMarkerColor=[0,0,1,1];//two in the fourth degree is equal to sixteen, so there are 16 colors
+InjuredPlayerColor = [0.2,0.2,0.2,1];
 PlayerShowBloodInt=false;
 PlayerShowDistance=false;
 TheThicknessOfThePointPlayer=1.0;
@@ -65,6 +66,16 @@ MedicalMarkerColor="ColorRed";
 While {markPos} do {
  	If (AddPlayersToMap) then {
 	{	
+		if ((vehicle (leader (group _x))) iskindof "Car") then {
+			PlayersMarkerType=["b_motor_inf"]; };
+		if ((vehicle (leader (group _x))) iskindof "Tank") then {
+			PlayersMarkerType=["b_armor"]; };
+		if ((vehicle (leader (group _x))) iskindof "Helicopter") then {
+			PlayersMarkerType=["b_air"]; };
+		if ((vehicle (leader (group _x))) iskindof "Plane") then {
+			PlayersMarkerType=["b_plane"]; };
+		if (!(vehicle (leader (group _x)) iskindof "Plane") and !(vehicle (leader (group _x)) iskindof "Helicopter") and !(vehicle (leader (group _x)) iskindof "Tank") and !(vehicle (leader (group _x)) iskindof "Car")) then {
+			PlayersMarkerType=["b_inf"]; }; 
 		(group _x) addGroupIcon PlayersMarkerType;
 		if (PlayerShowBloodInt && PlayerShowDistance) then {
 		BloodVal=round(_x getVariable["PlayerScores",0]);
@@ -79,6 +90,13 @@ While {markPos} do {
 		};
 		if (!PlayerShowBloodInt && !PlayerShowDistance) then {
 		(group _x) setGroupIconParams [PlayerMarkerColor, format ["%1",name _x],TheThicknessOfThePointPlayer,true];
+		};
+		if (!PlayerShowBloodInt && !PlayerShowDistance) then {
+			if ((lifestate (leader (group _x))) == "ALIVE") then {
+				(group _x) setGroupIconParams [PlayerMarkerColor, format ["%1",name _x],TheThicknessOfThePointPlayer,true];
+			} else {
+				(group _x) setGroupIconParams [InjuredPlayerColor, format ["%1 is down",name _x],TheThicknessOfThePointPlayer,true];
+			};
 		};
 		ParamsPlayersMarkers=[true,true];
 		setGroupIconsVisible [true,true];

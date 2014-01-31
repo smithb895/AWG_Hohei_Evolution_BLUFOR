@@ -5,10 +5,20 @@ if (!isServer) exitWith {};
 private ["_killed","_killer"];
 _killed = _this select 0;
 _killer = _this select 1;
-
+/*
+if (!isPlayer _killed) then {
+	_killer = _this select 1;
+} else {
+	_killer = _killed getVariable "bon_ais_killer";
+};
+*/
 if (E_TK_kill_points < 0) then {
 	if ((side (group _killer) == side (group _killed)) and (vehicle _killed != vehicle _killer)) then {
-		_killer addScore (E_TK_kill_points + 1);	// +1 point! cause the standard arma2 -1 point for tk's
+		if (!isPlayer _killed) then {
+			_killer addScore (E_TK_kill_points + 1);	// +1 point! cause the standard arma2 -1 point for tk's
+		} else {
+			_killer addScore (E_TK_kill_points);
+		};
 		_head = localize "STR_i_tk";
 		_body = localize "STR_i_tk_b";
 		["evo_message",[EVO_brown,_head,_body,"achtung",_killer]] call XNetCallEvent;

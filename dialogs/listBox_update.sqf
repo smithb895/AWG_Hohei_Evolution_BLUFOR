@@ -3,7 +3,7 @@
 EVO_SupList = [];
 EVO_RecList = [];
 EVO_SM_List = [[]];
-_ranknum = if (E_lock == 1) then {6} else {rankID player};
+_ranknum = if ((E_lock == 1) OR ((getPlayerUID player) in Evo_Admins)) then {6} else {rankID player};
 
 switch (_ranknum) do {
 	case (0) : {
@@ -364,7 +364,7 @@ switch (_ranknum) do {
 			["MVD_Soldier_Marksman", ["MVD_Soldier_Marksman"] call EVO_GetGuns]];
 		};
 		#endif
-		if (E_icbm == 1) then {
+		if ((E_icbm == 1) OR ((getPlayerUID player) in Evo_Admins)) then {
 			EVO_SupList = [[localize "STR_M04t104",localize "STR_M04t105",10,5,10,"pictures\ammo.paa",1],
 				[localize "STR_M04t106",localize "STR_M04t107",10,20,10,"pictures\airstrike.paa",2],		
 				["HMMWV SOV","HMMWV SOV",10,20,10,"pictures\hmvee.paa",8],

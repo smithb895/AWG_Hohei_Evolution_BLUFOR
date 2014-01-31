@@ -6,9 +6,10 @@
 
 #ifndef __DEBUG__
 	_intro = player execVM "client\intro.sqf";
+	//[] execVM "server\defenders_aa.sqf";
 #else
 	//_psy = [] execVM "showclass.sqf";
-	_psy = [player] execVM "cb_mapswitch.sqf";
+	//_psy = [player] execVM "cb_mapswitch.sqf";
 	EVO_intro_done = true;
 #endif
 __pSetVar ["BIS_noCoreConversations", true];
@@ -20,7 +21,7 @@ EVO_breath_script_in_progress = false;
 request_is_set = false;
 
 EVO_p_entities = ["evo_med_1","evo_med_2","evo_med_3","evo_med_4","evo_at_1","evo_at_2","evo_at_3","evo_at_4","evo_mg_1","evo_mg_2","evo_mg_3","evo_mg_4","evo_eng_1","evo_eng_2","evo_eng_3","evo_eng_4","evo_arti_1","evo_arti_2","","evo_arti_3","evo_arti_4","evo_so_1","evo_so_2","evo_so_3","evo_so_4","evo_gl_1","evo_gl_2","evo_gl_3","evo_gl_4","evo_aa_1","evo_aa_2","evo_aa_3","evo_aa_4"];
-EVO_all_spawn_hints = ["topic_dyk_tomi","topic_dyk_rank","topic_dyk_rt","topic_dyk_hq","topic_dyk_med2","topic_dyk_med1","topic_dyk_eng1","topic_dyk_eng2","topic_dyk_laser","topic_dyk_box","topic_dyk_shipping"];
+EVO_all_spawn_hints = ["topic_dyk_tomi","topic_dyk_rank","topic_dyk_rt","topic_dyk_hq","topic_dyk_med2","topic_dyk_med1","topic_dyk_eng1","topic_dyk_eng2","topic_dyk_box","topic_dyk_shipping"];
 
 bmark = createMarkerLocal ["support_marker_location", [0,0,0]];
 bmark setMarkerShapeLocal "ELLIPSE";
@@ -110,12 +111,7 @@ __ccppfln(client\func\x_perframe.sqf);
 		if (E_fastTime != 0) then {E_weather = 0};
 	};
 };
-if (E_weathereffects == 1) then {
-#ifdef __Takistan__
-execVM "client\sandstorm.sqf"};
-#else
-execVM "client\fog.sqf"};
-#endif
+
 
 [] spawn {
 	__waitpl;
@@ -136,12 +132,14 @@ execVM "client\fog.sqf"};
 
 // chopper varname, type (0 = lift chopper, 1 = wreck lift chopper, 2 = normal chopper), marker name, unique number, marker type, marker color, marker text, chopper display name
 d_choppers = [
-	["ch1",0,"chopper1",301,"n_air","ColorWhite","Lift 1","Lift One"],
-	["ch2",0,"chopper2",302,"n_air","ColorWhite","Lift 2","Lift Two"],
-	["ch3",0,"chopper3",303,"n_air","ColorWhite","Lift 3","Lift Three"],
-	["ch4",2,"chopper4",304,"n_air","ColorWhite","4","Transport One"],
-	["ch5",2,"chopper5",305,"n_air","ColorWhite","5","Transport Two"],
-	["ch6",2,"chopper6",306,"n_air","ColorWhite","6","Transport Three"]
+	["ah12",0,"chopper8",308,"Empty","","",""],
+	["ch1",0,"chopper1",301,"Empty","","",""],
+	["ch2",0,"chopper2",302,"Empty","","",""],
+	["ch3",0,"chopper3",303,"Empty","","",""],
+	["ch7",0,"chopper7",307,"Empty","","",""],
+	["ch4",2,"chopper4",304,"Empty","","",""],
+	["ch5",2,"chopper5",305,"Empty","","",""],
+	["ch6",2,"chopper6",306,"Empty","","",""]
 ];
 for "_i" from 0 to (count d_choppers - 1) do {
 	_elem = d_choppers select _i;
@@ -165,26 +163,26 @@ _end setTriggerType "END6";
 #ifndef __A2__
 	if __isBlue then {
 		ammobox1 = "USVehicleBox_EP1" createVehicleLocal getmarkerpos "ammob1";ammobox1 setpos getmarkerpos "ammob1"; __sleep;
-		ammobox2 = "USVehicleBox_EP1" createVehicleLocal getmarkerpos "ammob3";ammobox2 setpos getmarkerpos "ammob2"; __sleep;
-		ammobox3 = "USVehicleBox_EP1" createVehicleLocal getmarkerpos "ammob5";ammobox3 setpos getmarkerpos "ammob3"; __sleep;
-		ammobox4 = "USVehicleBox_EP1" createVehicleLocal getmarkerpos "ammob6";ammobox4 setpos getmarkerpos "ammob4"; __sleep;
+		ammobox2 = "USVehicleBox_EP1" createVehicleLocal getmarkerpos "ammob2";ammobox2 setpos getmarkerpos "ammob2"; __sleep;
+		ammobox3 = "USVehicleBox_EP1" createVehicleLocal getmarkerpos "ammob3";ammobox3 setpos getmarkerpos "ammob3"; __sleep;
+		ammobox4 = "USVehicleBox_EP1" createVehicleLocal getmarkerpos "ammob4";ammobox4 setpos getmarkerpos "ammob4"; __sleep;
 	} else {
 		ammobox1 = "TKVehicleBox_EP1" createVehicleLocal getmarkerpos "ammob1";ammobox1 setpos getmarkerpos "ammob1"; __sleep;
-		ammobox2 = "TKVehicleBox_EP1" createVehicleLocal getmarkerpos "ammob3";ammobox2 setpos getmarkerpos "ammob2"; __sleep;
-		ammobox3 = "TKVehicleBox_EP1" createVehicleLocal getmarkerpos "ammob5";ammobox3 setpos getmarkerpos "ammob3"; __sleep;
-		ammobox4 = "TKVehicleBox_EP1" createVehicleLocal getmarkerpos "ammob6";ammobox4 setpos getmarkerpos "ammob4"; __sleep;
+		ammobox2 = "TKVehicleBox_EP1" createVehicleLocal getmarkerpos "ammob2";ammobox2 setpos getmarkerpos "ammob2"; __sleep;
+		ammobox3 = "TKVehicleBox_EP1" createVehicleLocal getmarkerpos "ammob3";ammobox3 setpos getmarkerpos "ammob3"; __sleep;
+		ammobox4 = "TKVehicleBox_EP1" createVehicleLocal getmarkerpos "ammob4";ammobox4 setpos getmarkerpos "ammob4"; __sleep;
 	};
 #else
 	if __isBlue then {
 		ammobox1 = "USVehicleBox" createVehicleLocal getmarkerpos "ammob1";ammobox1 setpos getmarkerpos "ammob1"; __sleep;
-		ammobox2 = "USVehicleBox" createVehicleLocal getmarkerpos "ammob3";ammobox2 setpos getmarkerpos "ammob2"; __sleep;
-		ammobox3 = "USVehicleBox" createVehicleLocal getmarkerpos "ammob5";ammobox3 setpos getmarkerpos "ammob3"; __sleep;
-		ammobox4 = "USVehicleBox" createVehicleLocal getmarkerpos "ammob6";ammobox4 setpos getmarkerpos "ammob4"; __sleep;
+		ammobox2 = "USVehicleBox" createVehicleLocal getmarkerpos "ammob2";ammobox2 setpos getmarkerpos "ammob2"; __sleep;
+		ammobox3 = "USVehicleBox" createVehicleLocal getmarkerpos "ammob3";ammobox3 setpos getmarkerpos "ammob3"; __sleep;
+		ammobox4 = "USVehicleBox" createVehicleLocal getmarkerpos "ammob4";ammobox3 setpos getmarkerpos "ammob4"; __sleep;
 	} else {
 		ammobox1 = "RUVehicleBox" createVehicleLocal getmarkerpos "ammob1";ammobox1 setpos getmarkerpos "ammob1"; __sleep;
-		ammobox2 = "RUVehicleBox" createVehicleLocal getmarkerpos "ammob3";ammobox2 setpos getmarkerpos "ammob2"; __sleep;
-		ammobox3 = "RUVehicleBox" createVehicleLocal getmarkerpos "ammob5";ammobox3 setpos getmarkerpos "ammob3"; __sleep;
-		ammobox4 = "RUVehicleBox" createVehicleLocal getmarkerpos "ammob6";ammobox4 setpos getmarkerpos "ammob4"; __sleep;
+		ammobox2 = "RUVehicleBox" createVehicleLocal getmarkerpos "ammob2";ammobox2 setpos getmarkerpos "ammob2"; __sleep;
+		ammobox3 = "RUVehicleBox" createVehicleLocal getmarkerpos "ammob3";ammobox3 setpos getmarkerpos "ammob3"; __sleep;
+		ammobox4 = "RUVehicleBox" createVehicleLocal getmarkerpos "ammob4";ammobox4 setpos getmarkerpos "ammob4"; __sleep;
 	};
 #endif
 ammobox1 addAction [localize "STR_a_sl" call XYellowText, "client\func\saveloadout.sqf"];
@@ -300,5 +298,5 @@ if (E_fastTime != 0) then {[] spawn fastTime};
 	};
 };
 execFSM "fsms\checkForAdmin.fsm";
-
+execVM "server\func\variables.sqf";
 };

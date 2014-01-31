@@ -50,6 +50,7 @@ class Border3 {
 
 
 class RscTitles {
+	#include "PG_rsctitles.hpp"
 	titles[] ={"Evo_color_blue_1","Evo_color_blue_2","Evo_color_red_1","Evo_color_red_2","screen","DOM_RscNothing","chopper_lift_hud2","chopper_lift_hud","chopper_hud"};
 	class Evo_color_blue_1 {
 		idd=-1;
@@ -453,34 +454,6 @@ class RscTitles {
 		class controls {};
 	};
 
-
-
-	class topic_dyk_laser {
-	  	idd=-1;
-	  	movingEnable=0;
-	  	duration=12;  
-	  	fadein=2;     
-	  	name="topic_dyk_laser";
-	  	controls[] = {Titel,lasertarget};
-		class Titel : RscStdText {
-			text = "Topic: Did you know...";
-			colorText[] = Color_Blue;       
-			sizeEx = TextSize_large;	  	  	
-			x = -0.8;
-			y = -0.75;
-			w = 1;
-			h = 1;	  
-		};
-		class body : RscStdText {
-			text = "...you can earn points if you give a pilot with guided bombs a target per laser designator.";
-			colorText[] = Color_White;       
-			sizeEx = TextSize_medium;	  	  	
-			x = -0.6;
-			y = -0.65;
-			w = 2;
-			h = 1;
-		};
-	};
 	class topic_dyk_shipping {
 	  	idd=-1;
 	  	movingEnable=0;
@@ -860,5 +833,81 @@ class RscTitles {
 		};
 	};	
 	
+	class PlayerNameHud {
+		idd = -1;
+		duration = 1e+011;
+		name="PlayerNameHud";
+		onLoad = "uiNamespace setVariable ['X_PHUD', _this select 0]";
+		onUnLoad = "uiNamespace setVariable ['X_PHUD', nil]";
+		objects[] = {};
+		class controls {
+			class PlayerNameDisp {
+				type = 0;
+				idc = -1;
+				style = 0x00;
+				colorText[] = {0.75,0.75,0.75,1};
+				colorBackground[] = {0,0,0,0};
+				font = "Bitstream";
+				text = "";
+				sizeEx = 0.018;
+				w = 0.165;h = 0.018;x = 0.5;y = 0.5;
+				//shadow = 2;
+			};
+			
+			#define __ADP(varnum) \
+			class Player##varnum:PlayerNameDisp {idc = IDCPLAYER +  varnum;};
+			
+			__ADP(0)
+			__ADP(1)
+			__ADP(2)
+			__ADP(3)
+			__ADP(4)
+			__ADP(5)
+			__ADP(6)
+			__ADP(7)
+			__ADP(8)
+			__ADP(9)
+			__ADP(10)
+			__ADP(11)
+			__ADP(12)
+			__ADP(13)
+			__ADP(14)
+			__ADP(15)
+			__ADP(16)
+			__ADP(17)
+			__ADP(18)
+			__ADP(19)
+			__ADP(20)
+			__ADP(21)
+			__ADP(22)
+			__ADP(23)
+			__ADP(24)
+			__ADP(25)
+			__ADP(26)
+			__ADP(27)
+			__ADP(28)
+			__ADP(29)
+			__ADP(30)
+			__ADP(31)
+			__ADP(32)
+			__ADP(33)
+			__ADP(34)
+			__ADP(35)
+			__ADP(36)
+			__ADP(37)
+			__ADP(38)
+			__ADP(39)
+			__ADP(40)
+			__ADP(41)
+			__ADP(42)
+			__ADP(43)
+			__ADP(44)
+			__ADP(45)
+			__ADP(46)
+			__ADP(47)
+			__ADP(48)
+			__ADP(49)
+		};
+	};
 
 };

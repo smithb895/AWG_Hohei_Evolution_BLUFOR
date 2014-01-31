@@ -11,10 +11,10 @@ _ahqpic = _dialog displayCtrl 72007;
 _score = _dialog displayCtrl 72012;
 _rank = _dialog displayCtrl 72013;
 _tks = _dialog displayCtrl 72014;
+_UID = getPlayerUID player;
 
-//_bool = player getVariable "e_p_isadmin";
-_bool = if (player getVariable "e_p_isadmin" || isServer) then {true} else {false};
-//if (isNil "_bool") then {_bool = false};
+//|| isServer) then {true} else {false};
+_bool = _UID in Evo_Admins;
 
 if (_bool) then {
 	_info ctrlSetText localize "STR_d_adminhint";

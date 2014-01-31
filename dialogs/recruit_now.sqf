@@ -14,7 +14,7 @@ if (player != leader group player) exitWith {
 
 _grp = group player;
 _grpzise = (count units _grp) - 1;	//-1 player self
-_ranknum = if (E_lock == 1) then {6} else {rankID player};
+_ranknum = if ((E_lock == 1) OR ((getPlayerUID player) in Evo_Admins)) then {6} else {rankID player};
 
 switch (_ranknum) do {
 	case 0 : {if (_grpzise >= 1) exitWith {_description ctrlSetText localize "STR_M04t99"; _goout = true;}};

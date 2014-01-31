@@ -37,7 +37,7 @@ if ((isNil "EVO_current_task") and (time > 30)) then {
 	#ifndef __A2__
 	_brush = 'SolidBorder';
 	#else
-	_brush = 'Solid';
+	_brush = 'FDiagonal';
 	#endif
 	#ifdef __BLUE__
 	_color = 'ColorRed';

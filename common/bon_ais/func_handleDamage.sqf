@@ -7,6 +7,7 @@ private ['_agony','_unit','_bodypart','_damage','_returndamage'];
 _unit 		= _this select 0;
 _bodypart	= _this select 1;
 _damage		= _this select 2;
+_killer		= _this select 3;
 
 
 _return = _damage / (bon_ais_rambofactor max 1);
@@ -50,6 +51,7 @@ switch _bodypart do {
 
 if(_agony && not (_unit getVariable "bon_ais_agony")) then{
 	__aiSetVar(_unit) ["bon_ais_agony",true];
+	__aiSetVar(_unit) ["bon_ais_killer", _killer, true];
 };
 
 _return = 0;

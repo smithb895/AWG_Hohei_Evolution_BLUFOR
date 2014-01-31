@@ -1079,18 +1079,6 @@ class evo_admin {
 			colorText[] = Color_Red;
 			text = "";
 		};
-		class RscShortcutButton_1702: RscShortcutButton
-		{
-			idc = 72002;
-			onButtonClick = "closeDialog 0, [player] execVM 'dialogs\admin_start_spectating.sqf'";
-
-			text = "Spectating";
-			x = 0.203126;
-			y = 0.225;
-			w = 0.252863;
-			h = 0.105037;
-			tooltip = "start spectating modus";
-		};
 		class RscShortcutButton_1703: RscShortcutButton
 		{
 			idc = 72003;

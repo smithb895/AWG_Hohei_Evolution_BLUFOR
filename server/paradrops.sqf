@@ -34,7 +34,7 @@ _space = _unit call PsyfCargoSeats;
 _paraclass = EVO_enemy_side call XfGetParachuteSide;
 _lead = EVO_e_leader call XfRandomArrayVal;
 for "_i" from 1 to _space do {
-	_lucky_one = EVO_e_specops call XfRandomArrayVal;
+	_lucky_one = EVO_e_pjtroops call XfRandomArrayVal;
 	_enemy_list set [count _enemy_list, _lucky_one];
 };
 _leader = _paras createUnit [_lead, _pos, [], 20,"NONE"];

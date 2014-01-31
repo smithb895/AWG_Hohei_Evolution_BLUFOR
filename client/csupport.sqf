@@ -16,9 +16,9 @@ _base = "HeliHEmpty" createVehicle _bpos;
 ["evo_ordenance_request",[player,_type]] call XNetCallEvent;
 
 #ifdef __BLUE__
-_smoke = createVehicle ["SmokeShellBlue",_bpos, [], 0, "NONE"];
+//_smoke = createVehicle ["SmokeShellBlue",_bpos, [], 0, "NONE"];
 #else
-_smoke = createVehicle ["SmokeShellRed",_bpos, [], 0, "NONE"];
+//_smoke = createVehicle ["SmokeShellRed",_bpos, [], 0, "NONE"];
 #endif
 EVO_firemission = true;
 _mark2 = format["%1Bomb2",time];

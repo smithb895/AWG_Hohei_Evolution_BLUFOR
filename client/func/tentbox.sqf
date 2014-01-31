@@ -5,67 +5,46 @@ _box = _this select 0;
 
 clearWeaponCargo _box;
 clearMagazineCargo _box;
-#ifdef __Takistan__
+
 	if (__isBlue) then {
-		_box addWeaponCargo ["MAAWS",3];
-		_box addWeaponCargo ["Stinger",3];
-		_box addWeaponCargo ["G36a_camo",5];
-		_box addWeaponCargo ["SCAR_L_CQC_Holo",10];
-		_box addWeaponCargo ["M107", 1];
-		
-		_box addmagazinecargo ["10Rnd_127x99_m107", 10];
-		_box addmagazinecargo ["JAVELIN",5];
-		_box addmagazinecargo ["30Rnd_556x45_G36",100];
-		_box addmagazinecargo ["30Rnd_556x45_Stanag",100];
-		_box addmagazinecargo ["Stinger",10];
-		_box addmagazinecargo ["MAAWS_HEAT",100];
-		_box addmagazinecargo ["pipebomb",3];
-	} else {
-		_box addWeaponCargo ["RPG18",3];
-		_box addWeaponCargo ["RPG7V",3];
-		_box addWeaponCargo ["Igla",3];
-		_box addWeaponCargo ["G36a_camo",5];
-		_box addWeaponCargo ["FN_FAL",10];
-		_box addWeaponCargo ["KSVK", 1];
-		
-		_box addmagazinecargo ["5Rnd_127x108_KSVK", 10];
-		_box addmagazinecargo ["AT13",5];
-		_box addmagazinecargo ["20Rnd_762x51_FNFAL",100];
-		_box addmagazinecargo ["30Rnd_556x45_G36",100];
-		_box addmagazinecargo ["Igla",10];
-		_box addmagazinecargo ["PG7VL",100];
-		_box addmagazinecargo ["pipebomb",3];
+//rifles
+			_box addMagazineCargo["30RND_556X45_STANAG",(round(random 19))];
+			_box addMagazineCargo["30RND_556X45_G36",(round(random 19))];
+			//under-barrel grenade launchers
+			_box addMagazineCargo["1RND_HE_M203",(round(random 11))];
+			_box addMagazineCargo["FLAREWHITE_M203",(round(random 15))];
+			_box addMagazineCargo["1RND_SMOKE_M203",(round(random 15))];
+			//sniper rifles
+			_box addMagazineCargo["20RND_556X45_STANAG",(round(random 15))];
+			_box addMagazineCargo["20RND_762X51_DMR",(round(random 15))];
+			_box addMagazineCargo["5RND_762X51_M24",(round(random 15))];
+			_box addMagazineCargo["10RND_127X99_M107",(round(random 15))];
+			//machineguns
+			_box addMagazineCargo["100RND_556X45_BETACMAG",(round(random 15))];
+			_box addMagazineCargo["200RND_556X45_M249",(round(random 15))];
+			_box addMagazineCargo["100RND_762X51_M240",(round(random 15))];
+			//submachineguns
+			_box addMagazineCargo["30RND_9X19_MP5",(round(random 15))];
+			//shotguns
+			_box addMagazineCargo["8RND_B_BENELI_74SLUG",(round(random 15))];
+			//pistols
+			_box addMagazineCargo["7RND_45ACP_1911",(round(random 15))];
+			_box addMagazineCargo["15RND_9X19_M9",(round(random 15))];
+			//launchers
+			_box addMagazineCargo["SMAW_HEAA",(ceil(random 15))];
+			_box addMagazineCargo["SMAW_HEDP",(ceil(random 15))];
+			_box addMagazineCargo["JAVELIN",(round(random 11))];
+			_box addMagazineCargo["M136",(ceil(random 20))];
+			_box addMagazineCargo["STINGER",(round(random 10))];
+			//misc
+			_box addMagazineCargo["pipebomb",(round(random 8))];
+			_box addMagazineCargo["HandGrenade_West",(ceil(random 8))];
+			_box addMagazineCargo["Laserbatteries",(ceil(random 8))];
+			_box addWeaponCargo["SmokeShell",(ceil(random 11))];
+			_box addWeaponCargo["SmokeShellYellow",(ceil(random 11))];
+			_box addWeaponCargo["SmokeShellRed",(ceil(random 11))];
+			_box addWeaponCargo["SmokeShellGreen",(ceil(random 11))];
+			_box addWeaponCargo["SmokeShellPurple",(ceil(random 11))];
+			_box addWeaponCargo["SmokeShellBlue",(ceil(random 11))];
+			_box addWeaponCargo["SmokeShellOrange",(ceil(random 11))];
 	};
-#else
-	if (__isBlue) then {
-		_box addWeaponCargo ["M136",3];
-		_box addWeaponCargo ["SMAW",3];
-		_box addWeaponCargo ["Stinger",3];
-		_box addWeaponCargo ["G36a",5];
-		_box addWeaponCargo ["M16A4",10];
-		_box addWeaponCargo ["M107", 1];
-		
-		_box addmagazinecargo ["10Rnd_127x99_m107", 10];
-		_box addmagazinecargo ["JAVELIN",5];
-		_box addmagazinecargo ["30Rnd_556x45_Stanag",100];
-		_box addmagazinecargo ["30Rnd_556x45_G36",100];
-		_box addmagazinecargo ["Stinger",10];
-		_box addmagazinecargo ["SMAW_HEAA",100];
-		_box addmagazinecargo ["pipebomb",3];
-	} else {
-		_box addWeaponCargo ["RPG18",3];
-		_box addWeaponCargo ["RPG7V",3];
-		_box addWeaponCargo ["Igla",3];
-		_box addWeaponCargo ["G36a",5];
-		_box addWeaponCargo ["AK_107_kobra",10];
-		_box addWeaponCargo ["KSVK", 1];
-		
-		_box addmagazinecargo ["5Rnd_127x108_KSVK", 10];
-		_box addmagazinecargo ["AT13",5];
-		_box addmagazinecargo ["30Rnd_545x39_AK",100];
-		_box addmagazinecargo ["30Rnd_556x45_G36",100];
-		_box addmagazinecargo ["Igla",10];
-		_box addmagazinecargo ["PG7VL",100];
-		_box addmagazinecargo ["pipebomb",3];
-	};
-#endif

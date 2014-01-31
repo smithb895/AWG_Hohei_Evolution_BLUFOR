@@ -1,11 +1,11 @@
 /*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, ais">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"start",0,4346,-609.394836,-334.812927,-555.514771,-300.866486,0.000000,"start"};
+item0[] = {"start",0,250,-609.394836,-334.812927,-555.514771,-300.866486,0.000000,"start"};
 item1[] = {"_",8,218,-389.901001,-332.848480,-342.710327,-302.246521,0.000000,""};
 item2[] = {"healthy",2,250,-121.197121,-346.219635,-23.077042,-290.459534,0.000000,"healthy"};
 item3[] = {"fall_in_agony",4,218,-118.128418,-208.878052,-28.128265,-158.878052,0.000000,"fall in agony"};
-item4[] = {"agony",2,250,-123.965309,-24.655529,-22.604576,41.624901,0.000000,"agony"};
+item4[] = {"agony",2,4346,-123.965309,-24.655529,-22.604576,41.624901,0.000000,"agony"};
 item5[] = {"dead",4,218,101.743843,-175.030121,206.412582,-110.048569,100.000000,"dead"};
 item6[] = {"healed",4,218,-262.661499,-95.969437,-210.161057,-64.718903,0.000000,"healed"};
 item7[] = {"die___clean_up",2,250,122.001694,-247.638123,188.334717,-215.044495,0.000000,"die &" \n "clean up"};
@@ -73,8 +73,8 @@ link37[] = {26,27};
 link38[] = {27,30};
 link39[] = {28,29};
 link40[] = {30,1};
-globals[] = {0.000000,0,0,0,0,640,480,1,33,6316128,1,-999.656494,-78.721619,397.733521,-552.317627,854,911,1};
-window[] = {2,-1,-1,-1,-1,762,25,1284,25,3,872};
+globals[] = {0.000000,0,0,0,0,640,480,1,33,6316128,1,-466.502869,242.893646,125.431953,-481.791565,854,731,1};
+window[] = {2,-1,-1,-1,-1,862,125,1384,125,3,872};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -85,9 +85,10 @@ class FSM
     class start
     {
       name = "start";
-      init = /*%FSM<STATEINIT""">*/"private [""_unit"",""_side""];" \n
+      init = /*%FSM<STATEINIT""">*/"private [""_unit"",""_side"",""_killer""];" \n
        "_unit = _this select 0;" \n
        "_side = side _unit;" \n
+       "_killer = _unit getvariable ""bon_ais_killer"";" \n
        "" \n
        "_isplayable =" \n
        "	if(isMultiplayer) then{" \n
@@ -176,9 +177,15 @@ class FSM
        "if(lifestate _unit != ""UNCONSCIOUS"" ) then{" \n
        "	_unit setUnconscious true;" \n
        "	_unit execFSM (BON_AIS_PATH+""fsm\bloodloss.fsm"");" \n
+       "	_killer = _unit getvariable ""bon_ais_killer"";" \n
        "	bon_ais_in_agony = [_unit,true];" \n
        "	publicVariable ""bon_ais_in_agony"";" \n
-       "	[side _unit,""HQ""] sideChat format[""%1 is down and needs help"",name _unit];" \n
+       "	[""checkTK"", [_unit,_killer]] call XNetCallEvent;" \n
+       "	if (isPlayer _killer) then {" \n
+       "		[side _unit,""HQ""] sideChat format[""%1 has been downed by %2 and needs help"",name _unit,name _killer];" \n
+       "	} else {" \n
+       "		[side _unit,""HQ""] sideChat format[""%1 is down and needs help"",name _unit];" \n
+       "	};" \n
        "	_unit setCaptive true;" \n
        "" \n
        "	if({isPlayer _x} count (units group _unit) < 2) then {" \n
@@ -186,7 +193,6 @@ class FSM
        "	};" \n
        "" \n
        "	if(playerSide == _side) then{" \n
-       "		[_unit] execFSM (BON_AIS_PATH+""fsm\ais_marker.fsm"");" \n
        "" \n
        "		if(/*isServer && */_unit != player) then {" \n
        "			_fa_action = _unit addAction [format[""<t color='#F00000'>First Aid to %1</t>"",name _unit],(BON_AIS_PATH+""firstaid.sqf""),_unit,10,false,true,""""," \n

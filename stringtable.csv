@@ -2,53 +2,53 @@
 Language,English,German
 
 #ifdef __BLUE__
-	STR_a_gren,build MK19-Nest,MK19 Pod errichten
-	STR_a_aa,build Stinger-Nest,Stinger Pod errichten
-	STR_a_tow,build TOW-Nest,TOW Pod errichten
-	STR_a_arti,build M-119,M-119 errichten
+	STR_a_gren,Build MK19 Minitripod,MK19 Pod errichten
+	STR_a_aa,Build Stinger Pod,Stinger Pod errichten
+	STR_a_tow,Build TOW Launcher,TOW Pod errichten
+	STR_a_arti,Build M-119,M-119 errichten
 #endif
 #ifdef __RED__
-	STR_a_gren,build AGS30-Nest,AGS30 Pod errichten
+	STR_a_gren,Build AGS30 Minitripod,AGS30 Pod errichten
 	STR_a_aa,build Igla-Nest,Igla Pod errichten
 	STR_a_tow,build METIS-Nest,METIS Pod errichten
 	STR_a_arti,build D30,D30 errichten
 #endif
 
 STR_welcome,Welcome to Evolution 2,Willkommen zu Evolution 2
-STR_welcome2,Welcome soldier! If you have any questions may be the briefing is able to assist you.,Willkommen Soldat! Solltest du irgendwelche Fragen haben kann dir vieleicht das Briefing behilflich sein.
-STR_welcome3,Check you map (M) to find out the actual target location.,Schau auf deine Karte (M) um deinen aktuellen Einsatzort zu finden.
+STR_welcome2,Welcome soldier! If you have any questions the briefing should be able to assist you.,Willkommen Soldat! Solltest du irgendwelche Fragen haben kann dir vieleicht das Briefing behilflich sein.
+STR_welcome3,Check you map (M) to find the current target location.,Schau auf deine Karte (M) um deinen aktuellen Einsatzort zu finden.
 
 STR_a_capture,Capture,Festnehmen
 STR_a_error,Error,Fehler
-STR_a_abbort,Abbort,Abbruch
-STR_a_ing,build FARP,FARP errichten
-STR_a_medic,build field hospital,Feldlazarett errichten
-STR_a_mg,build MG-Nest,MG-Nest errichten
-STR_a_trench,entrech,eingraben
-STR_a_impossible,This action isn't possible on the Aitfield!,Diese Aktion ist auf dem Flugplatz nicht moeglich!
-STR_a_impossible2,This ground is not suitable for the construction.,Dieser Untergrund ist fuer den Bau nicht geeignet.
-STR_a_impossible3,This action is only on the airfield possible!,Diese Aktion ist nur auf dem Flugfeld moeglich!
-STR_a_truck,You are to far away from a Repair-Truck!,Du bist zu weit von einem Reparatur-LKW entfernt!
-STR_a_truck1,You are to far away from a Ammo-Truck!,Du bist zu weit von einem Munitions-LKW entfernt!
+STR_a_abbort,Abort,Abbruch
+STR_a_ing,Build FARP,FARP errichten
+STR_a_medic,Build field hospital,Feldlazarett errichten
+STR_a_mg,Build MG-Nest,MG-Nest errichten
+STR_a_trench,Entrench,eingraben
+STR_a_impossible,This action is not possible on the Aitfield!,Diese Aktion ist auf dem Flugplatz nicht moeglich!
+STR_a_impossible2,This ground is not suitable for construction.,Dieser Untergrund ist fuer den Bau nicht geeignet.
+STR_a_impossible3,This action is only possible on the airfield!,Diese Aktion ist nur auf dem Flugfeld moeglich!
+STR_a_truck,You are to far away from a repair truck!,Du bist zu weit von einem Reparatur-LKW entfernt!
+STR_a_truck1,You are to far away from a ammo truck!,Du bist zu weit von einem Munitions-LKW entfernt!
 STR_a_truck2,You are to far away from a MedEvac!,Du bist zu weit von einem Sanitaetsfahrzeug entfernt!
-STR_a_artch,press Weaponchange button on KeyBoard to switch between HE and AT Ammo,Drueck die F-Taste um zwischen HE und AT Munition zu wechseln
-STR_a_nogrnen,You need a weapon with grenadelauncher to di this!,Du benoetigst eine Waffe mit Granatwerfer um die Aktion ausfuehren zu koennen!
-STR_a_noat,You can not build a TOW_POD without Javelin-Launcher or Metis-Launcher or Dragon-Launcher!,Du benoetigst eine Javlin oder einen Dragon-Launcher oder eine Metis um diese Aktion ausfuehren zu koennen!
-STR_a_noaa,You can not use this action without any aa-launchers!,Du kannst die Aktion ohne eine Luftabwehrwaffe nicht ausfuehren!
-STR_a_nomg,You cannot do this without a mashinegun!,Fuer diese Aktion benoetigst du ein Maschinengewehr!
-STR_a_base,~ Move to Base,~ Gehe zur Basis
-STR_a_mhq,~ Move to Mobile HQ,~ Gehe zum MHQ
-STR_a_ahq,~ Move to Air HQ,~ Gehe zum AHQ
-STR_a_farpg,~ Move to german FARP,~ Gehe zum deutschen Aussenposten
-STR_a_farpcz,~ Move to czech FARP,~ Gehe zum tschechischen Aussenposten
-STR_a_farpus,~ Move to US FARP,~ Gehe zum amerikanischen Aussenposten
+STR_a_artch,Press reload button on your KeyBoard to switch between HE and AT ammo,Drueck die F-Taste um zwischen HE und AT Munition zu wechseln
+STR_a_nogrnen,You need a weapon with a grenade launcher to do this!,Du benoetigst eine Waffe mit Granatwerfer um die Aktion ausfuehren zu koennen!
+STR_a_noat,You can not build a TOW launcher without a Javelin launcher!,Du benoetigst eine Javlin oder einen Dragon-Launcher oder eine Metis um diese Aktion ausfuehren zu koennen!
+STR_a_noaa,You can not use this action without a Stinger launcher!,Du kannst die Aktion ohne eine Luftabwehrwaffe nicht ausfuehren!
+STR_a_nomg,You cannot do this without a light machine gun!,Fuer diese Aktion benoetigst du ein Maschinengewehr!
+STR_a_base,Move to Base,~ Gehe zur Basis
+STR_a_mhq,Move to Mobile HQ,~ Gehe zum MHQ
+STR_a_ahq,Move to Air HQ,~ Gehe zum AHQ
+STR_a_farpg,Move to german FARP,~ Gehe zum deutschen Aussenposten
+STR_a_farpcz,Move to czech FARP,~ Gehe zum tschechischen Aussenposten
+STR_a_farpus,Move to US FARP,~ Gehe zum amerikanischen Aussenposten
 STR_a_lshead,Done!,Erledigt!
 STR_a_lsbody,Loadout saved...,Ausruestung gespeichert...
-STR_a_tomi,call Tomahawk,Tomahawk anfordern
-STR_a_chq,Headquarter,Hauptquartier
-STR_a_cload,load cargo,Fracht einladen
+STR_a_tomi,Call tomahawk,Tomahawk anfordern
+STR_a_chq,Headquarters,Hauptquartier
+STR_a_cload,Load cargo,Fracht einladen
 STR_a_sl,Save Loadout,Ausruestung behalten
-STR_a_gbp,Ger Backpack,Rucksack nehmen
+STR_a_gbp,Get Backpack,Rucksack nehmen
 STR_a_halo,HALO-jump,HALO-Sprung
 STR_a_reject,reject the application,Anfrage ablehnen
 

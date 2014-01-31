@@ -50,11 +50,11 @@ if (
 //// Large
 if (
 (_Transporter isKindOf "CH47_base_EP1") ||
-(_Transporter isKindOf "Mi17_base") ||
-(_Transporter isKindOf "MV22") // No OR || after the last entry!!
+(_Transporter isKindOf "Mi17_base")// No OR || after the last entry!!
 ) then { _SelectedTransporterTypeL = true; };
 
 //// XTRA Large
 if (
-(_Transporter isKindOf "C130J") // No OR || after the last entry!!
+(_Transporter isKindOf "C130J")||
+(_Transporter isKindOf "MV22") // No OR || after the last entry!!
 ) then { _SelectedTransporterTypeXL = true; };

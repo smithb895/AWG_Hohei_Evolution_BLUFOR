@@ -25,7 +25,7 @@ switch _action do {
 	case 0:	{ //back to base
 		if (E_Basebeam == 1) then {
 			call _by_beaming;
-			player SetPos [(getPos Evo_Baseflag_MHQ select 0)-10*sin(_dir),(getPos Evo_Baseflag_MHQ select 1)-10*cos(_dir)];
+			player SetPos [(getPos Evo_Baseflag_MHQ select 0)-5*sin(_dir),(getPos Evo_Baseflag_MHQ select 1)-5*cos(_dir)];
 		} else {
 			_txthead = localize "STR_i_info";
 			_txtbody = localize "STR_n_avalible";
@@ -39,7 +39,7 @@ switch _action do {
 					_mr_text = localize "STR_i_mhq1";
 					_mr_available = false;
 				};
-				case (speed MHQ > 4): {
+				case (speed MHQ > 10): {
 					_mr_text = localize "STR_i_mhq2";
 					_mr_available = false;
 				};
@@ -102,16 +102,13 @@ switch _action do {
 			[EVO_brown,_txthead,_txtbody,"info"] call EVO_Message;
 		};
 	};
-	case 3:	{ //to farp germany
-		player SetPos [(getMarkerPos "Marker_Farp_Alpha" select 0)-15*sin(_dir),(getMarkerPos "Marker_Farp_Alpha" select 1)-15*cos(_dir)];
+	case 3:	{ //to farp Alpha
+		player SetPos [(getMarkerPos "Marker_Farp_Alpha" select 0)-5*sin(_dir),(getMarkerPos "Marker_Farp_Alpha" select 1)-5*cos(_dir)];
 	};
-	case 4:	{ //to farp Czech
-		player SetPos [(getMarkerPos "Marker_Farp_Bravo" select 0)-15*sin(_dir),(getMarkerPos "Marker_Farp_Bravo" select 1)-15*cos(_dir)];
+	case 4:	{ //to farp Bravo
+		player SetPos [(getMarkerPos "Marker_Farp_Bravo" select 0)-5*sin(_dir),(getMarkerPos "Marker_Farp_Bravo" select 1)-5*cos(_dir)];
 	};
-	case 5:	{ //to farp us
-		player SetPos [(getMarkerPos "Marker_Farp_Charlie" select 0)-15*sin(_dir),(getMarkerPos "Marker_Farp_Charlie" select 1)-15*cos(_dir)];
-	};
-	case 6:	{ //to farp cdf
-		player SetPos [(getMarkerPos "Marker_Farp_CDF" select 0)-15*sin(_dir),(getMarkerPos "Marker_Farp_CDF" select 1)-15*cos(_dir)];
+	case 5:	{ //to farp Charley
+		player SetPos [(getMarkerPos "Marker_Farp_Charly" select 0)-5*sin(_dir),(getMarkerPos "Marker_Farp_Charly" select 1)-5*cos(_dir)];
 	};
 };

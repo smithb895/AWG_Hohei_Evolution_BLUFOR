@@ -429,7 +429,7 @@ EVO_deboarding = {
 	_passenger = _this select 2;
 	
 	_dist = [Evo_Baseflag_MHQ, _vec] call BIS_fnc_distance2D;
-	if (_dist <= 1000) exitWith {hint "distanz fehler"};
+	//if (_dist <= 1000) exitWith {hint "distanz fehler"};  //Wyatt: does nothing but annoy me.
 	_real = _passenger getVariable "EVO_passenger";
 	if (isNil "_real") exitWith {hint "getvar found nothing"};
 	if ((_cargo_pos != "driver") && isPlayer _passenger && canMove _vec) then {

@@ -3,8 +3,10 @@
 disableSerialization;
 _dialog = findDisplay 72000;
 _info = _dialog displayCtrl 72001;
+_UID = getPlayerUID player;
 
-_bool = if (player getVariable "e_p_isadmin" || isServer) then {true} else {false};
+//isServer) then {true} else {false}
+_bool = _UID in Evo_Admins;
 if (!_bool) exitWith {
 	closeDialog 0;
 	"This Button is only usable for a Administrator!" call XfGlobalChat;
@@ -21,9 +23,9 @@ _numtk = _p select 2;
 serverCommand ("#kick " + _uid);
 
 _admin_name = name player;
-diag_log format ["Player %1 was kicked by Admin %4, # team kills: %3, ArmA2Key: %2", _pna, _uid, _numtk, _admin_name];
+diag_log format ["Player %1 was kicked by Admin %4, # team kills: %3, ArmA2Key: %2", name player, _uid, _numtk, _admin_name];
 _head = localize "STR_i_adminkick";
-_body = format [localize "STR_i_adminkick_reason", _pna,_admin_name];
+_body = format [localize "STR_i_adminkick_reason", name player,_admin_name];
 ["evo_message_global",[EVO_brown,_head,_body,"info"]] call XNetCallEvent;
 
 ["end_mission", [_selected]] call XNetCallEvent;

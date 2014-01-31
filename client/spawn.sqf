@@ -123,7 +123,7 @@ for [{_loop=0}, {_loop<1}, {_loop=_loop}] do {
 	_p setSkill EVO_PlayerSkill;
 	setViewDistance EVO_vdist;
 	#ifndef __ACE__
-	if (daytime > 19.75 || daytime < 4.15) then {_p action ["NVGoggles",_p]};
+	//if (daytime > 20.5 || daytime < 20.51) then {_p action ["NVGoggles",_p]};  //Wyatt: For some reason all player have NVGs on spawn, no matter what time.
 	#endif
 	#ifdef __BLUE__
 		if (__kindp "US_Soldier_Medic_EP1" or __kindp "FR_Corpsman" or __kindp "USMC_Soldier_Medic" or __kindp "US_Delta_Force_Medic_EP1" or __kindp "GER_Soldier_Medic_EP1") then {_actionId8 = player addAction [localize "STR_a_medic" call XGreyText, "client\mash.sqf",1,1, false, true,"test2"]};

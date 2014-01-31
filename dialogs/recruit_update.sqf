@@ -29,7 +29,7 @@ _grp = group player;
 _grpzise = (count units _grp) - 1;	//-1 player self
 _accgroup ctrlSetText str (_grpzise);
 if (player == leader group player) then {
-	_ranknum = if (E_lock == 1) then {6} else {rankID player};
+	_ranknum = if ((E_lock == 1) OR ((getPlayerUID player) in Evo_Admins)) then {6} else {rankID player};
 	switch (_ranknum) do {
 		case 0 : {_maxgroup ctrlSetText str (1)};
 		case 1 : {_maxgroup ctrlSetText str (2)};

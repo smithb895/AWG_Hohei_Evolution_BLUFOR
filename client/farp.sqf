@@ -1,4 +1,5 @@
 ﻿#include "setup.sqf"
+_UID = getPlayerUID player;
 _truck = objNull;
 _truck = (nearestObject [vehicle player, EVO_reptruck]);
 if(isNull _truck) exitWith {
@@ -40,6 +41,7 @@ _pos3 = [(_pos2 select 0)+3,(_pos2 select 1)+3,_pos2 select 2];
 #endif
 etent = "PowGen_Big" createVehicle _pos2; __sleep;
 etent setDir (random 259);
+diag_log format ["Player %1 pitched a FARP at Position [ %2 ] ArmA2Key: %3", name player, _pos2, _UID];
 _pos4 = [(_pos select 0)+3,(_pos select 1)+15,_pos select 2];
 ebox2 = "Barrels" createVehicle _pos4; __sleep;
 ["transmit_box_content",[ebox]] call XNetCallEvent;

@@ -11,9 +11,7 @@ sleep 2;
 	if (!(CB_jump)) then		//activate position change per mapclick
 	{
 		CB_jump = true;
-		ID_jumpM = _psycho addAction ["Mapswitch on","mapswitch.sqf",[_psycho],0, false, true];
+		ID_jumpM = _psycho addAction ["<t color=""#00B7FF"">" + "Mapswitch on","mapswitch.sqf",[_psycho],-100, false, true];
 		onMapSingleClick "";
 	};
-
-
 };

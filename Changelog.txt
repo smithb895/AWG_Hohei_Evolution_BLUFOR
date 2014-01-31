@@ -1,0 +1,146 @@
+Wyatt's change log from V4R2 to V5.1B
+
+1. Map! - The base and two farps were remodelled into more organized layouts.  Spawn is no longer so crammed when starting a new, full game.  New lighting, for that sexy time glow.
+2. Designed and installed base safety script.  All players and vehicles are unable to fire at base, AI excluded.   This script is only used for respawning vehicles, players and first spawn vehicles have it in their init line.  JIP ready.
+3. Updated vehicle respawn script from 1.6 to 1.7; Modified script to handle base safety on vehicle respawn.
+4. Redid the ammo/weapon boxes.  HQ and FARPS has every bluefor gun and ammunition possible.  Ammo supply boxes now carry semi-random amounts of ammo for all weapons.
+5. Tweaked the intro view some.   Removed the force NVG.
+6. Worked on the HALO/paradrop scripts.   A good base line is there if we bring it back.  Currently you can skydive, deploy parashoot the steer it!   Could add it as an exit option on helicopters/C130/MV22?
+7. Helicopter service points - You no longer need to hit a bullseye every time.  Radius doubled at FARPS and the service point at base is now big enough to land 3 MV22s in it.  No more repair-blocking!
+8. Jet service points - Service points are much larger and easier to hit.
+9. New vehicles - Lots of bicycles added.  An extra m1a1 and TUSK were added. An extra C-130J and MV-22 were added.
+10. Went bughunting!  Fixed ~5 script errors that were pre-existing.
+11. I realized that Anzu's anti-satchel script was redundant now.  Deleted.
+12. Added delays to some while loops to decrease lag.  Alpha testers reported a massive performance increase after only 2 scripts were modified.  I don't remember witch.
+
+
+/////////////////////////////////////////////////////////////////////
+
+Superxpdude's Changelog - V5.1B to V5.2B
+
+1. Added custom textures for the A-10 thunderbolt.
+2. Fixed the airlifting ability of the MH-60S. and MV-22.
+3. Added respawning for the admin vehicles (seriously don't abuse this).
+4. Admin C-130J (AC-130) now supports HALO jumping.
+5. Removed the hints that were created whenever flares were fired. (They still don't actually do anything yet, they're just cosmetic).
+6. F-35s have been equipped with 2 AGM-65 Mavericks each (Because they were pretty useless with only GBUs, no one flew them at all).
+7. Admin variants of the MH-60S and UH-1Y have been added to the admin base, they are not equipped with flares due to issues with their door gunners.
+8. Updated the "Vehicle Rank Unlocks" note to reflect changes to the ranks (And to fix the formatting).
+9. Updated the points required to advance through the ranks (to have them look nicer for the rank unlocks note)
+	- Corporal - Moved down from 17 points to 15 points.
+	- Sergeant - Moved up from 33 points to 35 points.
+	- Lieutenant - Moved down from 66 points to 65 points.
+	- Captain - Moved down from 132 points to 125 points.
+	- Major - Moved down from 207 points to 200 points.
+	- Colonel - Moved down from 330 points to 300 points.
+	
+	
+/////////////////////////////////////////////////////////////////////
+	
+Superxpdude's Changelog - V5.2B to V5.3B
+
+1. Vehicle rank requirements have been shuffled around a bit.
+	- SU-25 has been moved down from Colonel to Major.
+	- AH-64D Sidewinders has been moved down from Major to Captain.
+	- AH-64D has been moved down from Major to Captain.
+	- M119 has been moved down from Captain to Sergeant (Since otherwise the spotter can't make use of their construction ability until they have 125 points). 
+	- UH-1Y has been moved down to Sergeant from Lieutenant.
+	- C-130J has been moved down to Lieutenant from Captain.
+2. OPFOR's transport helicopter has been changed from the Mi-8 Medevac to the Mi-8MTV-3
+
+
+/////////////////////////////////////////////////////////////////////
+	
+Superxpdude's Changelog - V5.3B to V5.4B
+
+1. Increased the amount of time for the MHQ and AHQ to respawn, it is now 5 minutes and 10 minutes repectively (hopefully people will be a bit more careful with these now).
+2. Increased the amount of points given for capturing an officer from 7 to 10.
+3. Changed some variables relating to the naming of the mission. It's now [AWG] evolution BLUE instead of Hohei Evolution Blue. Proper credits are still given in the credits section.
+4. AI controlled Anti-Air pods have been added to the base to prevent enemy air vehicles from intruding into that airspace.
+5. Insurgents have now started supporting the russians by providing ZSU-23 Shilkas to the battlefield. (I know they're worse than tunguskas, but it should help with a little bit of variety).
+6. Enemy AI will no longer drive mobile artillery into the heat of battle (Because seriously it's a stupid idea to try and direct fire MLRS and GRAD rockets at things).
+
+
+/////////////////////////////////////////////////////////////////////
+	
+Superxpdude's Changelog - V5.4B to V5.5B
+
+1. Fixed a serious bug with v5.4B regarding the mission version name (Turns out if you change it it breaks everything).
+2. Standardized the admin function scripts to all use the Evo_Admins as defined in init.sqf (Old arrays are still in place just in case).
+3. Corporals now have access to stinger missiles in the ammo box at spawn.
+4. Admins can now bypass the weapon rank lock as well as the vehicle rank lock.
+5. Enemy vehicles are now locked by default to prevent friendly fire incidents.
+
+
+/////////////////////////////////////////////////////////////////////
+	
+Superxpdude's Changelog - V5.5B to V5.6B
+
+1. Fixed the respawn times on the MHQ and AHQ (A bug in the script was causing them to respawn in 30 seconds from when they were destroyed).
+2. Artillery deployed by spotters no longer has a tank cannon built-in.
+3. Artillery deployed by spotters now has access to the artillery targeting display.
+4. Admins can now bypass the rank and points restrictions on recruiting AI and calling in support.
+5. Lowered the rank requirement for the M119s to Corporal since they can be used for artillery purposes now.
+
+
+/////////////////////////////////////////////////////////////////////
+	
+Superxpdude's Changelog - V5.6B to V5.7B
+
+1. Added a system to prevent control lockups.
+2. Because of 1, we can now re-enable the revive system, hopefully this'll help with the change regarding the MHQ and AHQ respawn times.
+3. Changed the helicopter service point at base to accept two helicopters at once.
+
+
+/////////////////////////////////////////////////////////////////////
+	
+Superxpdude's Changelog - V5.7B to V5.8B
+
+1. Fixed not being able to lift some of the CDF vehicles.
+2. Fixed a script error regarding capturing the officer, it should now work properly.
+3. Raised the amount of points earned from capturing and not killing the officer again.
+
+
+/////////////////////////////////////////////////////////////////////
+	
+Superxpdude's Changelog - V5.8B to V5.9B
+
+1. The revive script will now show if someone was teamkilled, and the name of the teamkiller.
+2. The marker over a player will turn dark grey when the player is down and will also display "Player is down" beside the marker.
+3. Reviving a team-mate now awards points to the player.
+
+//////////////////////////////////////////////////////////////////////
+
+Tactical_Force's Changelog - v5.95b to v5.96a
+
+1. Updated GCam from 1.0 to 2.0 and tweaked to make it work for regular ArmA 2 (Etc removed Flir option) - Press L to get the list of options for GCam.
+2. Re-enabled in-game administrator through Headquarters menu.
+3. Changed AI's Behavior and Movement speeds (etc Behavior change from AWARE\CARELESS to COMBAT and movement from LIMITED to NORMAL - Making them harder to kill).
+4. Removed some of the Admin Vehicles.
+5. Changed mission parameters Town Route to Random All (24).
+6. Admin Vehicles have ability to Lift/Load vehicles.
+--TO DO--
+- Find a way to disable weapon drops from cluttering the ground floor at base
+- Find more effective solutions to finding hackers/cheaters
+
+//////////////////////////////////////////////////////////////////////
+
+Tactical_Force's Changelog - v5.96a to v5.97a
+
+1. Increased AI Skill & AI Spawns.
+2. Added Proving Grounds for Super Admins only.
+3. Added buttons and moved MHQ/AHQ buttons in adminstrator listed under Headquarters > Adminstrator to a higher spot to make room for future admin buttons.
+4. Adminstrator listed in Headquarters can only be accessed by admins only and not by any player.
+5. Made list of Admin UIDs server sided to keep admin UIDs safe.
+6. Added diag_log in p_connected/disconnected to log when admins log in and log out.
+7. Added diag_log to farp/mash creation by player to log position and player's name of who placed that MASH and FARP and where at.(To check to see who placed a mash/farp at spawn).
+8. New Bases for Blufor & Opfor
+
+//////////////////////////////////////////////////////////////////////
+2014-01-30
+Anzu's Changelog - v5.98a to v5.98b
+
+1. Increased player slots to 40
+2. Added option for playing 15 random towns
+
+//////////////////////////////////////////////////////////////////////

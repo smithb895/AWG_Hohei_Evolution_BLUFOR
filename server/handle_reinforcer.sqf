@@ -16,12 +16,12 @@ while {!__XJIPGetVar(mt_radio_down)} do {
 	__MPCheck;
 	_num_p = call XPlayersNumber;
 	sleep (switch (true) do {
-		case (_num_p < 5): {150};
-		case (_num_p < 10): {120};
-		case (_num_p < 20): {90};
-		case (_num_p < 25): {60};
-		case (_num_p >= 25): {45};
-		default {60};
+		case (_num_p < 5): {120};
+		case (_num_p < 10): {96};
+		case (_num_p < 20): {72};
+		case (_num_p < 25): {48};
+		case (_num_p >= 25): {36};
+		default {48};
 	});
 };
 
@@ -36,5 +36,5 @@ if (EVO_done_towns == EVO_alltowns_topass) exitWith {
 	sleep 1;
 	EVO_real_end = true;
 };
-sleep 45;
+sleep 60;
 execVM "server\set_maintarget.sqf";

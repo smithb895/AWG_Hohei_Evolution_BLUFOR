@@ -1,5 +1,6 @@
 #include "setup.sqf"
-#include "gcam_component.hpp"
+#include "dialogs\gcam_component.hpp"
+//#include "addons\proving_ground\PG_config.hpp"
 
 onLoadMission = __E_VER_NAME__;
 #ifndef __A2__
@@ -11,13 +12,13 @@ respawndelay = __EVO_RESPAWN_DELAY__;
 debriefing =1;
 disabledAI=1;
 showGPS=1;
-showRadio=1;
+showRadio=0;
 briefing=1;
 
 class Header {
 	gameType = COOP;
 	minPlayers = 1;
-	maxPlayers = 32; 
+	maxPlayers = 40; 
 	playerCountMultipleOf = 1;
 };
 
@@ -34,16 +35,16 @@ class Params
 #ifdef __Takistan__
 	class E_Towns { 
       	title="Town Route";
-		values[]={1,2,3,4,5,6,7};
-		texts[]={"Evo Standard Route (9)","North-South Route (10)","random all (23)", "1 random town", "3 random towns", "5 random towns", "8 random towns"};	
-		default = 1;
+		values[]={1,2,3,4,5,6,7,8};
+		texts[]={"Evo Standard Route (9)","North-South Route (10)","random all (23)", "1 random town", "3 random towns", "5 random towns", "8 random towns", "15 random towns"};	
+		default = 3;
 	};
 #else
 	class E_Towns { 
       	title="Town Route";
-		values[]={1,2,3,4,5,6,7};
-		texts[]={"Evo Standard Route (9)","Coast Route (7)","random all (24)", "1 random town", "3 random towns", "5 random towns", "8 random towns"};	
-		default = 1;
+		values[]={1,2,3,4,5,6,7,8};
+		texts[]={"Evo Standard Route (9)","Coast Route (7)","random all (24)", "1 random town", "3 random towns", "5 random towns", "8 random towns", "15 random towns"};	
+		default = 3;
 	};
 #endif
     class E_lock {
@@ -56,13 +57,13 @@ class Params
 		title = "Satchels need to destroy Radiotowers?";
 		values[] = {0,1,2};
 		texts[] = {"Disabled", "1", "2"};
-		default = 1;
+		default = 2;
 	};
     class E_spawn {
         title = "Injury System";
         values[] = {0,1};
         texts[] = {"Disabled","Enabled"};
-        default = 0;
+        default = 1;
 	};
 	class E_loadout {
 		title = "Weapon Loadout";
@@ -74,7 +75,7 @@ class Params
       	title = "View Distance";
       	values[] = {500,800,1000,1300,1500,1800,2000,2300,2500,2800,3000,3300,3500,3800,4000,4300,4500,4800,5000,6000,7000,8000,9000,10000};
       	texts[] = {"500 m","800 m","1000 m","1300 m","1500 m","1800 m","2000 m","2300 m","2500 m","2800 m","3000 m","3300 m","3500 m","3800 m","4000 m","4300 m","4500 m","4800 m","5000 m","6000 m","7000 m","8000 m","9000 m","10000 m"};
-      	default = 2000;
+      	default = 1800;
 	};
 	class E_weather {
 		title = "Weather System";
@@ -91,7 +92,9 @@ class Params
 	};
 #endif
 	class E_weathereffects {
-#ifdef __Takistan__
+
+	
+	#ifdef __Takistan__
 		title = "Sandstorms";
 #else
 		title = "Foggy Clouds";
@@ -104,13 +107,13 @@ class Params
 		title = "Troop Size Defense";
 		values[] = {1,2,3,4};
 		texts[] = {"Easy", "Normal", "Hard", "Extreme"};
-		default = 1;
+		default = 4;
 	};
 	class E_ga_defence {
 		title = "Enemys Ground-to-Air Defence";
 		values[] = {0,3,6};
 		texts[] = {"Disabled", "Normal", "Hard"};
-		default = 3;
+		default = 6;
 	};
 	class E_with_respawn_dlg {
 		title = "Teleporter Respawn Dialog";
@@ -134,18 +137,18 @@ class Params
 		title = "ICBM support avalible";
 		values[] = {0,1};
 		texts[] = {"Disabled","Enabled"};
-		default = 1;
+		default = 0;
 	};
 	class E_OverrideBISEffects {
 		title = "Override BIS Effects:";
 		values[] = {1,0};
-		default = 1;
+		default = 0;
 		texts[] = {"Disabled", "Enabled"};
 	};
 	class E_Mines {
 		title = "Enemy place AT-Mines";
 		values[] = {0,1};
-		default = 1;
+		default = 0;
 		texts[] = {"Disabled", "Enabled"};
 	};
 	class E_vehiclelock {
@@ -157,14 +160,14 @@ class Params
 	class E_fastTime {
 		title = "Fast Time";
 		values[] = {0,1,2,3};
-		default = 0;
+		default = 2;
 		texts[] = {"Disabled", "12h Day", "6h Day", "3h Day"};
 	};
 #ifndef __A2__
 	class E_arty_comp {
 		title = "Artillery Computer";
 		values[] = {0,1};
-		default = 1;
+		default = 0;
 		texts[] = {"Disabled", "Enabled"};
 	};
 #endif
@@ -177,13 +180,13 @@ class Params
 	class E_max_num_TKs {
 		title = "Teamkills for Autokick";
 		values[] = {999999,2,3,5,10,20};
-		default = 5;
+		default = 3;
 		texts[] = {"Disabled","2 times","3 times","5 times","10 times","20 times"};
 	};
 	class E_TK_kill_points {
 		title = "Negative Score for Teamkills";
 		values[] = {0,-1,-2,-5};
-		default = -1;
+		default = -5;
 		texts[] = {"Disabled","-1","-2","-5"};
 	};
 	class E_max_num_TKs_mhq {
@@ -195,6 +198,7 @@ class Params
 };
 
 //standard------------------------------------------------------
+
 #ifdef __BLUE__
 	#include "dialogs\evo_mainUI_blue.hpp"
 #else
@@ -203,6 +207,5 @@ class Params
 #include "dialogs\RscTitles.cpp"
 #include "dialogs\sounds.cpp"
 #include "dialogs\getbackpack.hpp"
-#include "dialogs\spect\spectating.hpp"
 
 onMinimapScript[] = {"BIS_fnc_customGPS_Spawn"};

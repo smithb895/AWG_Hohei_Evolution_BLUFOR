@@ -2,36 +2,191 @@
 #include "setup.sqf"
 if !(X_Client) exitWith {};
 
+// Only put stuff relevant to the players in this changelog
+
+_log = player createDiaryRecord ["Diary", ["Changelog", "<br/>
+-------------------------------------------------<br/>
+------------  V5.98 Alpha to V5.98 Beta <br/>
+-------------------------------------------------<br/>
+<br/>
+- Number of player slots increased to 40.
+<br/>
+- Added option to play 15 random towns.
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+-------------------------------------------------<br/>
+------------  V5.96 Alpha to V5.98 Alpha <br/>
+-------------------------------------------------<br/>
+<br/>
+- The AI Number of Infantry spawns has been increased 48 to 64.
+<br/>
+- AI minimal random skill level has been increased from 0.2 to 0.6.
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+-------------------------------------------------<br/>
+------------  V5.95 Beta to V5.96 Alpha <br/>
+-------------------------------------------------<br/>
+<br/>
+- The AI system has been improved, the AI units are now smarter and faster reacting to combat.
+<br/>
+<br/>
+<br/>
+<br/>
+-------------------------------------------------<br/>
+------------  V5.9 Beta to V5.93 Beta <br/>
+-------------------------------------------------<br/>
+<br/>
+- EVO Red Version 5 now exists.<br/>
+<br/>
+<br/>
+<br/>
+-------------------------------------------------<br/>
+------------  V5.8 Beta to V5.9 Beta <br/>
+-------------------------------------------------<br/>
+<br/>
+- The revive system now indicates if someone was killed by friendly fire.<br/>
+- Fixed an issue with markers for downed players.<br/>
+- Reviving downed players now awards points to the healer.<br/>
+<br/>
+<br/>
+<br/>
+-------------------------------------------------<br/>
+------------  V5.7 Beta to V5.8 Beta <br/>
+-------------------------------------------------<br/>
+<br/>
+- Fixed not being able to lift some CDF vehicles at base.<br/>
+- Fixed a bug with capturing the enemy officer and unarmed soldiers, should work properly now.<br/>
+<br/>
+<br/>
+<br/>
+-------------------------------------------------<br/>
+------------  V5.6 Beta to V5.7 Beta <br/>
+-------------------------------------------------<br/>
+<br/>
+- Fixed some instances where the player could end up with their controls compeltely locked up.<br/>
+- Re-enabled the revive script since it no longer will lock up the player's controls.<br/>
+- Changed the helicopter service point at base to accept two helicopters at once.<br/>
+<br/>
+<br/>
+<br/>
+-------------------------------------------------<br/>
+------------  V5.5 Beta to V5.6 Beta <br/>
+-------------------------------------------------<br/>
+<br/>
+- Fixed respawn times on the AHQ and MHQ (They were bugged and respawned nearly instantly).<br/>
+- Spotters can now deploy artillery pieces that can actually work as artillery pieces.<br/>
+- Artillery pieces now have access to ArmA 2's artillery targeting system.<br/>
+<br/>
+<br/>
+<br/>
+-------------------------------------------------<br/>
+------------  V5.4 Beta to V5.5 Beta <br/>
+-------------------------------------------------<br/>
+<br/>
+- Players that have the rank of corporal or higher now have access to stinger missiles.<br/>
+<br/>
+<br/>
+<br/>
+-------------------------------------------------<br/>
+------------  V5.3 Beta to V5.4 Beta <br/>
+-------------------------------------------------<br/>
+<br/>
+- Capturing an enemy officer now rewards you with 10 points instead of 6.<br/>
+- The main base has been upgraded with anti-air defenses.<br/>
+- OPFOR ZSU-23 Shilkas will now sometimes appear in the AO.<br/>
+- The commander of the enemy's artillery battalions has been replaced with someone else who is smart enough not to send long-range artillery into close combat environments.<br/>
+<br/>
+<br/>
+<br/>
+-------------------------------------------------<br/>
+------------  V5.2 Beta to V5.3 Beta <br/>
+-------------------------------------------------<br/>
+<br/>
+- Some of the vehicle rank requirements have been updated. Check the rank requirements note for more details.<br/>
+<br/>
+<br/>
+<br/>
+-------------------------------------------------<br/>
+------------  V5.1 Beta to V5.2 Beta <br/>
+-------------------------------------------------<br/>
+<br/>
+- Custom textures added to the A-10 thunderbolt. It now looks like it belongs in chernarus.<br/>
+- The airlifting ability of the MH-60S and MV-22 have been fixed.<br/>
+- F-35Bs have been equipped with AGM-65 Mavericks for extra Anti-Tank capability.<br/>
+<br/>
+<br/>
+<br/>
+-------------------------------------------------<br/>
+-----------     V4R2 to V5.1 Beta <br/>
+-------------------------------------------------<br/>
+<br/>
+- Main Base and FARPs were remodelled into more organized layouts.<br/>
+- Tweaked ammo boxes to carry varying selections of weapons and ammo.<br/>
+- HALO jump capability added to the C-130J and MV-22.<br/>
+- Lots of bicycles have been added to the main base, along with another M1A1 and M1A2 TUSK. An extra C-130J and MV-22 have been added as well.<br/>
+- Fixed many bugs."]];
+
 //notes
 _log = player createDiaryRecord ["Diary", ["Role-related skills", "
-Each character has a special skill. This is applicable under certain conditions. For example, pioneers can build FARP's and medics a MASH.<br/>
+Every player type has a special ability.<br/>
 The following is a list of the capabilities:<br/>
-- Pionieer : erect FARP<br/>
-- Medic : erect MASH<br/>
-- AA-Soldier : erect AA-Pod<br/>
-- Grenadier : erect static grenade launcher<br/>
-- AT-Specialist : erect static missile launcher<br/>
-- Spotter : erect artillery<br/>
-- Machinegunner : erect MG-Pod<br/>
-- Special Forces : HALO<br/>"]];
+- Engineer : Erect FARPs when near a repair truck.<br/>
+- Medic : Erect MASHs when near a medical vehicle.<br/>
+- AA-Soldier : Erect AA static defences when equipped with a Stinger launcher.<br/>
+- Grenadier : Erect a grenade launcher minitripod when equipped with a weapon that has a grenade launcher.<br/>
+- AT-Specialist : Erect a TOW Missile launcher when equipped with a Javelin.<br/>
+- Spotter : Erect M119 artillery units when near an ammunition truck.<br/>
+- Machinegunner : Erect a M2 tripod when equipped with a LMG.<br/>"]];
+
+
+_log = player createDiaryRecord ["Diary", ["Vehicle rank unlocks", "
+Here is a brief overview of what vehicles unlock when you rank up.<br/>
+<br/>
+Corporal   - 25 points<br/>
+	- All Humvee and UAZ variants, excluding the Avenger. <br/>
+	- All Armoured Personel Carriers.<br/>
+	- M119 Artillery Units.<br/><br/>
+Sergeant   - 45 points<br/>
+	- All light tanks - M1A1 and T72.<br/>
+	- All anti-air vehicles - HMMWV Avenger and ZSU Shilka.<br/>
+	- The MH60S heavy transport helicopter.<br/>
+	- The UH-1Y light transport helicopter.<br/><br/>
+Lieutenant   - 85 points<br/>
+	- The M1A2 TUSK urban battle tank.<br/>
+	- The MLRS mobile artillery system.<br/>
+	- The MV-22 Osprey VTOL transport.<br/>
+	- The C130J heavy transport plane.<br/>
+	- The Mi24-D gunship helicopter.<br/><br/>
+Captain   - 145 points<br/>
+	- The anti-air variant of the AH64D attack helicopter.<br/>
+	- The anti-tank variant of the AH64D attack helicopter.<br/>
+	- The Su-25 Close Air Support aircraft.<br/><br/>
+Major   - 220 points<br/>
+	- The A10 Close Air Support aircraft.<br/>
+	- The F35B fighter bomber.<br/>
+	- The AV-8B (LGB) Close Air Support aircraft.<br/><br/>
+Colonel   - 360 points<br/>
+	- The AV-8B fighter bomber.<br/>
+	- The AH-1Z attack helicopter.<br/>
+"]];
 
 _log = player createDiaryRecord ["Diary", ["The Officer", "
-This is only a secondary goal. In every town there is an officer who should be arrested. There are a reward."]];
+Officers command forces on the ground and are often protected by multiple squads of infantry and armour. <br> Capture the officer for additional score."]];
 
 _log = player createDiaryRecord ["Diary", ["The Radiotower", "
-Only if the radio tower of the opponent is destroyed, the city can be freed. The enemy uses the radio tower to call for his gain. Without the tower, he will soon have to give up.<br/>
-In most cases the tower can only be destroyed with satchels!"]];
-#ifdef __BLUE__
+The radio tower is vital for the survival of the resistance forces.  In light of that they will protect it at all costs!<br>
+Destroy the tower to prevent local resistance from calling in reinforcements."]];
+
 _log = player createDiaryRecord ["Diary", ["Free the town", "
 <img image='pictures\evo_blue.paa'/><br/><br/>
-This is your only primary target. To clear the town the radiotower must be destroyed just like all vehicles.<br/>
-Chance of infantry can survive, what will emerge after the liberation."]];
-#else
-_log = player createDiaryRecord ["Diary", ["Free the town", "
-<img image='pictures\evo_red.paa'/><br/><br/>
-This is your only primary target. To clear the town the radiotower must be destroyed just like all vehicles.<br/>
-Chance of infantry can survive, what will emerge after the liberation."]];
-#endif
+Destroy the resistance and liberate the town."]];
+
 
 
 //////lobby settings
@@ -45,6 +200,7 @@ _par1 = switch (true) do {
 	case (E_Towns ==5) : {"3 random towns"};
 	case (E_Towns ==6) : {"5 random towns"};
 	case (E_Towns ==7) : {"8 random towns"};
+	case (E_Towns ==8) : {"15 random towns"};
 #else
 	case (E_Towns ==1) : {"Evo Standard Route (9)"};
 	case (E_Towns ==2) : {"Coast Route"};
@@ -53,6 +209,7 @@ _par1 = switch (true) do {
 	case (E_Towns ==5) : {"3 random towns"};
 	case (E_Towns ==6) : {"5 random towns"};
 	case (E_Towns ==7) : {"8 random towns"};
+	case (E_Towns ==8) : {"15 random towns"};
 #endif
 };
 _par2 = switch (true) do {
@@ -155,7 +312,7 @@ _par15 = switch (true) do {
 	case (E_icbm == 1) : {"enabled"};
 	case (E_icbm == 0) : {"disabled"};
 };
-
+/*
 _subject = player createDiarySubject ["settings", "Lobby Settings"];
 _log = player createDiaryRecord ["settings", ["Evo Towns", _par1]];
 _log = player createDiaryRecord ["settings", ["Start-Weapon Loadout", _par2]];
@@ -178,39 +335,69 @@ _log = player createDiaryRecord ["settings", ["negative Score for Teamkills", _p
 _log = player createDiaryRecord ["settings", ["Number of Teamkills for Autokick", _par13]];
 _log = player createDiaryRecord ["settings", ["Number of destroyed mobile spawn for Autokick", _par14]];
 _log = player createDiaryRecord ["settings", ["ICBM support avalible?", _par15]];
-
+*/
 
 //////credits
 _subject = player createDiarySubject ["made", "Credits"];
 
 _log = player createDiaryRecord ["made", ["Contact", "
-<img image='pictures\info.paa'/><br/>
-You can report bugs and any suggestions on dev-heaven... follow the link:<br/>
-http://dev-heaven.net/projects/hohei-evo"]];
+Please report bugs to any Anzu's War Games administrator or clan member. <br>
+Feel free to visit us on our forums or TS3.<br>
+Web: AnzusWarGames.Info<br>
+TS3: TS3.AnzusWarGames.Info"]];
 
 _log = player createDiaryRecord ["made", ["Thank You...", "<br/>
 ...to:<br/>
 - for first mission design: Kiljoy<br/>
 - for the good teamwork in 2010: Razor<br/>
+- for the excelent update in 2013: {AWG} Wyatt<br>
 - for external scripts and functions:<br/>
---> backpack dialog - BonInf*<br/>
---> x-functions, vehicle-lift-system and these great netcode - Xeno<br/>
 --> BI-functions - BIS<br/>
 --> snow script - Ruebe<br/>
 --> BTK Cargo Drop - sxp2high<br/>
---> Spectating script - Kegetys<br/>
---> Injury System - Bon_Inf*<br/>
 - for the game OFP, ArmA and ArmA2 - Bohemia Interactive Simulation<br/>
 - to devheaven for the webspace<br/>
 - to the hole Combat Group community and especially to Iridium for Beta testing and intensive bug reporting<br/><br/>
-...and all the others i have forgotten here!<br/>
+...and all the others I have forgotten here!<br/>
 "]];
 
-_log = player createDiaryRecord ["made", ["made by", "<br/>
+_log = player createDiaryRecord ["made", ["Created by", "<br/>
 - Original Evolution for ArmA1 by Kiljoy (in 2007?)<br/>
 - first fine working ArmA2 port by Razor in 2009<br/>
 - complete reworked for ArmA2 and OA by Psychobastard in 2011<br/>
-- Version number: 2.064.045"]];
+- Updated for AWG by {AWG} Wyatt in 2013<br>
+- Version number: 5.2 Beta"]];
+
+// Only put stuff relevant to the players in the changelog
+
+_log = player createDiaryRecord ["made", ["Changelog", "<br/>
+-------------------------------------------------<br/>
+------------  V5.2 Beta to V5.3 Beta <br/>
+-------------------------------------------------<br/>
+<br/>
+- Some of the vehicle rank requirements have been updated. Check the rank requirements note for more details.<br/>
+<br/>
+<br/>
+<br/>
+-------------------------------------------------<br/>
+------------  V5.1 Beta to V5.2 Beta <br/>
+-------------------------------------------------<br/>
+<br/>
+- Custom textures added to the A-10 thunderbolt. It now looks like it belongs in chernarus.<br/>
+- The airlifting ability of the MH-60S and MV-22 have been fixed.<br/>
+- F-35Bs have been equipped with AGM-65 Mavericks for extra Anti-Tank capability.<br/>
+<br/>
+<br/>
+<br/>
+-------------------------------------------------<br/>
+-----------     V4R2 to V5.1 Beta <br/>
+-------------------------------------------------<br/>
+<br/>
+- Main Base and FARPs were remodelled into more organized layouts.<br/>
+- Tweaked ammo boxes to carry varying selections of weapons and ammo.<br/>
+- HALO jump capability added to the C-130J and MV-22.<br/>
+- Lots of bicycles have been added to the main base, along with another M1A1 and M1A2 TUSK. An extra C-130J and MV-22 have been added as well.<br/>
+- Fixed many bugs."]];
 
 //for jips
 notes_done = true;

@@ -14,9 +14,17 @@ bon_ais_rambofactor = 3;
 	_unit = (_this select 1) select 0;
 	_in_agony = (_this select 1) select 1;
 	_side = _unit getVariable "bon_ais_side";
+	_killer = _unit getVariable "bon_ais_killer";
+	//["checkTK", [_unit,_killer]] call XNetCallEvent;
 	if (playerSide == _side) then {
 		if(_in_agony) then{
-			[[_side,"HQ"],format [localize "STR_i_bon_down",name _unit]] call XfSideChat;
+			if (isPlayer _killer) then {
+				[side _unit,"HQ"] sideChat format["%1 has been downed by %2 and needs help",name _unit,name _killer];
+			} else {
+				[side _unit,"HQ"] sideChat format["%1 is down and needs help",name _unit];
+			};
+			//[[_side,"HQ"],format ["%1 has been downed by %2 and needs help.",name _unit,name _killer]] call XfSideChat;
+			//[[_side,"HQ"],format [localize "STR_i_bon_down",name _unit]] call XfSideChat;
 			_fa_action = _unit addAction [format["<t color='#655EDE'>First Aid to %1</t>",name _unit],(BON_AIS_PATH+"firstaid.sqf"),_unit,10,false,true,"",
 				"{not isNull (_target getVariable _x)} count ['healer','dragger'] == 0 && alive _target && vehicle _target == _target
 			"];

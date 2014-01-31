@@ -44,7 +44,7 @@ class evo_mainUI {
 		{
 			idc = -1;
 			colorText[] = Color_Blue;
-			text = "Hohei Evolution 2 - BLUE";
+			text = "[AWG] Evolution 5.98b - BLUE";
 			x = 0.658172;
 			y = 0.644964;
 			w = 0.171875;
@@ -73,7 +73,7 @@ class evo_mainUI {
 			w = 0.1875;
 			h = 0.1;
 		};
-		class grpbutton: RscShortcutButton
+		/*class grpbutton: RscShortcutButton
 		{
 			idc = 66003;
 			text = $STR_d_groups;	//groups
@@ -82,7 +82,7 @@ class evo_mainUI {
 			y = 0.375;
 			w = 0.265626;
 			h = 0.1;
-		};
+		};*/
 		class recbutton: RscShortcutButton
 		{
 			idc = 66004;
@@ -93,7 +93,7 @@ class evo_mainUI {
 			w = 0.265626;
 			h = 0.1;
 		};
-		class smbutton: RscShortcutButton
+		/*class smbutton: RscShortcutButton
 		{
 			idc = 66006;
 			text = $STR_d_sms;	//sidemissions
@@ -102,7 +102,7 @@ class evo_mainUI {
 			y = 0.425;
 			w = 0.265626;
 			h = 0.1;
-		};
+		};*/
 		class adminbutton: RscShortcutButton
 		{
 			idc = 66007;
@@ -126,7 +126,7 @@ class evo_mainUI {
 		class txt_rank: RscText {
 			idc = 66008;
 			colorText[] = Color_GrayLight;
-			text = "dein Rang:";
+			text = "Rank:";
 			x = 0.546875;
 			y = 0.375;
 			w = 0.140625;
@@ -135,7 +135,7 @@ class evo_mainUI {
 		class txt_playtime: RscText {
 			idc = 66009;
 			colorText[] = Color_GrayLight;
-			text = "Spielzeit:";
+			text = "Play Time:";
 			x = 0.546875;
 			y = 0.415;
 			w = 0.1875;
@@ -144,7 +144,7 @@ class evo_mainUI {
 		class txt_score: RscText {
 			idc = 66010;
 			colorText[] = Color_GrayLight;
-			text = "Supportpunkte:";
+			text = "Support Points:";
 			x = 0.546875;
 			y = 0.455;
 			w = 0.1875;
@@ -229,20 +229,11 @@ class evo_hq_request {
 			colorText[] = Color_GrayLight;
 			sizeEx = TextSize_large;
 		};
-		class info_hint: RscText
-		{
-			idc = -1;
-			text = "Global Positioning System is Online";
-			x = 0.469677;
-			y = 0.462;
-			w = 0.336367;
-			h = 0.0337512;
-		};
 		class evolution: RscText
 		{
 			idc = -1;
 			colorText[] = Color_Blue;
-			text = "Hohei Evolution 2 - BLUE";
+			text = "Hohei Evolution 5 - BLUE";
 			x = 0.658172;
 			y = 0.644964;
 			w = 0.171875;
@@ -425,7 +416,7 @@ class evo_options {
 		{
 			idc = -1;
 			colorText[] = Color_Blue;
-			text = "Hohei Evolution 2 - BLUE";
+			text = "[AWG] Evolution 5.98b - BLUE";
 			x = 0.658172;
 			y = 0.644964;
 			w = 0.171875;
@@ -678,7 +669,7 @@ class evo_recruit {
 		{
 			idc = -1;
 			colorText[] = Color_Blue;
-			text = "Hohei Evolution 2 - BLUE";
+			text = "[AWG] Evolution 5.98b - BLUE";
 			x = 0.658172;
 			y = 0.644964;
 			w = 0.171875;
@@ -908,7 +899,7 @@ class evo_groups {
 		{
 			idc = -1;
 			colorText[] = Color_Blue;
-			text = "Hohei Evolution 2 - BLUE";
+			text = "[AWG] Evolution 5.98b - BLUE";
 			x = 0.658172;
 			y = 0.644964;
 			w = 0.171875;
@@ -1038,7 +1029,7 @@ class evo_admin {
 		class evolution: RscText {
 			idc = -1;
 			colorText[] = Color_Blue;
-			text = "Hohei Evolution 2 - BLUE";
+			text = "[AWG] Evolution 5.98b - BLUE";
 			x = 0.658172;
 			y = 0.644964;
 			w = 0.171875;
@@ -1079,18 +1070,6 @@ class evo_admin {
 			colorText[] = Color_Red;
 			text = "";
 		};
-		class RscShortcutButton_1702: RscShortcutButton
-		{
-			idc = 72002;
-			onButtonClick = "closeDialog 0, [player] execVM 'dialogs\admin_start_spectating.sqf'";
-
-			text = "Spectating";
-			x = 0.203126;
-			y = 0.225;
-			w = 0.252863;
-			h = 0.105037;
-			tooltip = "start spectating modus";
-		};
 		class RscShortcutButton_1703: RscShortcutButton
 		{
 			idc = 72003;
@@ -1098,7 +1077,7 @@ class evo_admin {
 
 			text = "Unlock MHQ";
 			x = 0.203125;
-			y = 0.35;
+			y = 0.20;
 			w = 0.224026;
 			h = 0.107555;
 			tooltip = "lock or unlock the MHQ";
@@ -1110,7 +1089,7 @@ class evo_admin {
 
 			text = "Unlock AHQ";
 			x = 0.203125;
-			y = 0.425;
+			y = 0.275;
 			w = 0.224026;
 			h = 0.105037;
 			tooltip = "lock or unlock the AHQ";
@@ -1134,7 +1113,7 @@ class evo_admin {
 			lineSpacing = 1;
 			size = 0.035;
 			x = 0.420444;
-			y = 0.38;
+			y = 0.22;
 			w = 0.0625;
 			h = 0.075;
 			colorBackground[] = { 1, 1, 1, 0 };
@@ -1159,7 +1138,7 @@ class evo_admin {
 			size = 0.035;
 
 			x = 0.420196;
-			y = 0.46;
+			y = 0.29;
 			w = 0.0625;
 			h = 0.075;
 			colorBackground[] = { 1, 1, 1, 0 };
@@ -1187,6 +1166,18 @@ class evo_admin {
 			w = 0.250941;
 			h = 0.107555;
 			tooltip = "kick selected Player from the Server";
+		};
+		class RscShortcutButton_1709: RscShortcutButton
+		{
+			idc = 72009;
+			onButtonClick = "[] execVM 'awg\openPG.sqf'";
+
+			text = "Proving Grounds";
+			x = 0.203125;
+			y = 0.5;
+			w = 0.224026;
+			h = 0.107555;
+			tooltip = "Access Proving Grounds - Super Admins Only";
 		};
 		class txt_score: RscText
 		{
@@ -1294,7 +1285,7 @@ class evo_sms {
 		{
 			idc = -1;
 			colorText[] = Color_Blue;
-			text = "Hohei Evolution 2 - BLUE";
+			text = "[AWG] Evolution 5.98b - BLUE";
 			x = 0.658172;
 			y = 0.644964;
 			w = 0.171875;
@@ -1481,7 +1472,7 @@ class TeleportModule {
 			font = "Zeppelin32";
 			sizeEx = 0.03921;
 			colorText[] = Color_Blue;
-			text = "Hohei Evolution 2 - BLUE";
+			text = "[AWG] Evolution 5.98b - BLUE";
 		};
 		class maprespawn : XD_RscMapControl {
 			idc = 100104;

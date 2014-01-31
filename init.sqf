@@ -10,6 +10,14 @@ enableTeamSwitch false;
 titleCut ["","black faded", 0];
 #endif
 
+//Hopefully this will allow us to use the revive system again.
+_UID = getPlayerUID player;
+[] execVM "antilock.sqf";
+
+// Exec Proving Grounds - Admins Only Access
+//[] execVM "addons\proving_Ground\init.sqf";
+
+
 X_INIT = false;X_Server = false; X_Client = false; X_JIP = false;X_SPE = false;X_MP = isMultiplayer;
 if (isServer) then {
 	X_Server = true;
@@ -39,6 +47,20 @@ if (isNil "x_funcs1_compiled") then {
 	__ccppfln(common\x_netinit.sqf);
 };
 
+if (isServer) then {
+
+    //evo_updateMasterList = compile preprocessFile "\serverside\admins\synchronizeMasterList.sqf";
+    //call evo_updateMasterList;
+
+    //"evo_masterListUpdateRequest" addPublicVariableEventHandler {
+    //    call evo_updateMasterList;
+	// };
+	 
+	"paddscore" addPublicVariableEventHandler {
+		((_this select 1) select 0) addScore ((_this select 1) select 1);
+	};
+};
+
 #include "i_common.sqf"
 #include "i_server.sqf"
 #include "i_client.sqf"
@@ -53,6 +75,7 @@ switch (E_Towns) do {
 	case 5: {EVO_maintargets = [EVO_all_possible_towns,3] call PsyfRandomCountedIndexArray}; //3 random towns
 	case 6: {EVO_maintargets = [EVO_all_possible_towns,5] call PsyfRandomCountedIndexArray}; //5 random towns
 	case 7: {EVO_maintargets = [EVO_all_possible_towns,8] call PsyfRandomCountedIndexArray}; //8 random towns
+	case 8: {EVO_maintargets = [EVO_all_possible_towns,15] call PsyfRandomCountedIndexArray}; //15 random towns
 };
 #else
 switch (E_Towns) do {
@@ -63,6 +86,7 @@ switch (E_Towns) do {
 	case 5: {EVO_maintargets = [EVO_all_possible_towns,3] call PsyfRandomCountedIndexArray}; //3 random towns
 	case 6: {EVO_maintargets = [EVO_all_possible_towns,5] call PsyfRandomCountedIndexArray}; //5 random towns
 	case 7: {EVO_maintargets = [EVO_all_possible_towns,8] call PsyfRandomCountedIndexArray}; //8 random towns
+	case 8: {EVO_maintargets = [EVO_all_possible_towns,15] call PsyfRandomCountedIndexArray}; //15 random towns
 };
 #endif
 EVO_done_towns = 0;
@@ -73,13 +97,8 @@ waitUntil {!isNil "bis_fnc_init"};
 
 //ace abfrage
 //if (isClass(configFile/"CfgPatches"/"ace_main")) then {};
+	
+waitUntil {player == player};
 
-if (isServer) then {
-	"paddscore" addPublicVariableEventHandler {
-		((_this select 1) select 0) addScore ((_this select 1) select 1);
-	};
-};
-masteradminsarray = [
-	"1234567", // Replace with admin UIDs
-	"09876545"
-	];
+sleep 0.5;
+BIS_Effects_Flares=compile preprocessFileLineNumbers "flares.sqf";
